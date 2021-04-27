@@ -1,0 +1,14 @@
+<div class="flex justify-between w-full font-semibold text-2xs">
+  <span>{{ label }}</span>
+  <span>{{ value }}</span>
+</div>
+
+<mat-slider
+  (change)="onChange($event)"
+  (input)="onInput($event)"
+  color="primary"
+  [value]="value"
+  [min]="min"
+  [max]="max"
+  class="w-full"
+></mat-slider>

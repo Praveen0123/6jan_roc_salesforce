@@ -1,0 +1,40 @@
+<section class="flex justify-center text-center">
+
+  <div class="flex-shrink">
+
+    <roc-button-with-icon title="logout"
+                          fontSet="fal"
+                          fontIcon="sign-out-alt"
+                          (onClick)="onLogout()"></roc-button-with-icon>
+
+  </div>
+
+  <div class="flex-shrink">
+
+    <button mat-button
+            (click)="onAbout()">
+
+      <span class="ml-1.5 text-sm">
+        About
+      </span>
+
+    </button>
+
+
+  </div>
+
+
+  <div class="flex-shrink">
+
+    <button mat-button
+            (click)="openDialogFeedbackForm()">
+
+      <span class="ml-1.5 text-sm">
+        Feedback
+      </span>
+
+    </button>
+
+
+  </div>
+</section>

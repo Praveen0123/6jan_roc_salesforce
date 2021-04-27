@@ -1,0 +1,28 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{compareModel.scoresSATReadingMinimum}} - {{compareModel.scoresSATReadingMaximum}}</div>
+    <div>{{compareModel.scoresSATMathMinimum}} - {{compareModel.scoresSATMathMaximum}}</div>
+    <div>{{compareModel.scoresACTReadingMinimum}} - {{compareModel.scoresACTReadingMaximum}}</div>
+    <div>{{compareModel.scoresACTMathMinimum}} - {{compareModel.scoresACTMathMaximum}}</div>
+    <div>{{compareModel.scoresAcceptanceRate}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>SAT (Reading)</div>
+    <div>SAT (Math)</div>
+    <div>ACT (Reading)</div>
+    <div>ACT (Math)</div>
+    <div>Acceptance Rate</div>
+
+  </section>
+
+</ng-template>

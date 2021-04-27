@@ -1,0 +1,25 @@
+<mat-tab-group [selectedIndex]="selectedTabIndex">
+
+  <mat-tab label="Explore Careers">
+
+
+    <ng-template matTabContent>
+      <roc-explore-careers [roiModelDto]="roiModelDto"
+                           (onExploreCareersSubmitted)="onExploreCareersSubmitted($event)"></roc-explore-careers>
+    </ng-template>
+
+
+  </mat-tab>
+
+  <mat-tab label="Explore Degrees">
+
+
+    <ng-template matTabContent>
+      <roc-explore-degrees [roiModelDto]="roiModelDto"
+                           (onExploreDegreesSubmitted)="onExploreDegreesSubmitted($event)"></roc-explore-degrees>
+    </ng-template>
+
+
+  </mat-tab>
+
+</mat-tab-group>

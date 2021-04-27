@@ -1,0 +1,12 @@
+type Tenant @key(fields: "id")
+{
+  id: ID!
+  name: String!
+  hostName: String!
+  description: String
+}
+
+extend type Query
+{
+  tenantByHostName(hostName: String!): Tenant
+}

@@ -1,0 +1,72 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "./custom-themes/notification.scss-theme.scss";
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+$custom-typography: mat-typography-config($font-family: 'Source Sans Pro',
+  $display-4: mat-typography-level(12px, 1.125, 300, $letter-spacing: -0.05em),
+  $display-3: mat-typography-level(12px, 1.125, 400, $letter-spacing: -0.02em),
+  $display-2: mat-typography-level(12px, 1.125, 400, $letter-spacing: -0.005em),
+  $display-1: mat-typography-level(12px, 1.125, 400),
+  $headline: mat-typography-level(12px, 1.125, 400),
+  $title: mat-typography-level(12px, 1.125, 500),
+  $subheading-2: mat-typography-level(12px, 1.125, 400),
+  $subheading-1: mat-typography-level(12px, 1.125, 400),
+  $body-2: mat-typography-level(12px, 1.125, 500),
+  $body-1: mat-typography-level(12px, 1.125, 400),
+  $caption: mat-typography-level(12px, 1.125, 400),
+  $button: mat-typography-level(10px, 1.125, 500),
+  // Line-height must be unit-less fraction of the font-size.
+  $input: mat-typography-level(12px, 1.75, 400),
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($custom-typography);
+
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+@import './palettes.scss';
+$mat-primary: mat-palette($mat-primary-palette, 1, 1, 1);
+
+$roc-modeling-accent: mat-palette($mat-blue-gray, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$roc-modeling-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$roc-modeling-theme: mat-light-theme((color: (primary: $mat-primary,
+      accent: $roc-modeling-accent,
+      warn: $roc-modeling-warn,
+    ),
+  ));
+
+// Theme for notifications / snackbar
+$roc-notifications-theme: (default: #fff,
+  info: mat-color(mat-palette($mat-blue), 400),
+  success: mat-color(mat-palette($mat-green), 400),
+  warning: mat-color(mat-palette($mat-yellow), 400),
+  error: mat-color(mat-palette($mat-red), 400),
+);
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($roc-modeling-theme);
+@include notification-theme($roc-notifications-theme);
+
+@import './component-styles/radio-button.scss';
+@import './component-styles/checkbox.scss';
+@import './component-styles/form-field.scss';
+@import './component-styles/input.scss';
+@import './component-styles/tabs.scss';
+@import './component-styles/button-toggle.scss';
+@import './component-styles/progress-spinner.scss';

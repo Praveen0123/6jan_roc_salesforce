@@ -1,0 +1,16 @@
+<section *ngIf="title"
+         class="flex items-stretch section-header-container">
+  <div class="flex-1">{{title}}</div>
+</section>
+
+<section class="flex items-stretch">
+  <div class="flex-none w-72">
+    <ng-content></ng-content>
+  </div>
+
+  <ng-container *ngTemplateOutlet="compareTemplate ? compareTemplate : defaultCompareTemplate"></ng-container>
+
+</section>
+
+
+<ng-template #defaultCompareTemplate></ng-template>

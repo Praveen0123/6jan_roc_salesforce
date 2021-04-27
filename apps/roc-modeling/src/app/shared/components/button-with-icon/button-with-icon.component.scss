@@ -1,0 +1,25 @@
+@import 'common';
+
+:host {
+  color  : mat-color($primary, 500);
+  display: block;
+
+  &.saved-button {
+    color: mat-color($primary, 2);
+  }
+
+  &.notification {
+    color: mat-color($primary, 200);
+  }
+}
+
+.mat-icon {
+  color         : mat-color($primary, 50);
+  vertical-align: text-top !important;
+}
+
+.mat-button {
+  &:focus {
+    outline: none;
+  }
+}

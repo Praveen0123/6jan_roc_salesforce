@@ -1,0 +1,35 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{compareModel.institutionName}}</div>
+    <div>{{compareModel.institutionAddress}}</div>
+    <div>
+      <a [href]="compareModel.institutionWebsite"
+         target="_blank">
+        website
+      </a>
+    </div>
+    <div>{{compareModel.institutionType}}</div>
+    <div>{{compareModel.institutionGraduationRate}}</div>
+    <div>{{compareModel.institutionUndergraduateStudentCount}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Name</div>
+    <div>Location</div>
+    <div>Website</div>
+    <div>Type</div>
+    <div>Graduation Rate</div>
+    <div>Undergraduate Students</div>
+
+  </section>
+
+</ng-template>

@@ -1,0 +1,51 @@
+    <div class="mt-6 mb-1">
+      <section class="flex select-none">
+
+        <!-- OUT OF POCKET AMOUNT -->
+        <div class="flex-1">
+
+          <h3>Out Of Pocket</h3>
+          <h5>({{cumulativeNetPrice | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="cumulativeNetPrice"
+                                 [initialValue]="cumulativeOutOfPocketExpenses"
+                                 [step]="sliderStep"
+                                 [color]="'#8E0F93'"
+                                 (input)="onCumulativeOutOfPocketExpensesInput($event)"
+                                 (change)="onCumulativeOutOfPocketExpensesChange($event)"></roc-lib-slider-circle>
+
+        </div>
+
+
+        <!-- FEDERAL LOAN -->
+        <div class="flex-1">
+
+          <h3>Federal Loan</h3>
+          <h5>({{(cumulativeFederalSubsidizedLoanLimit + cumulativeFederalUnsubsidizedLoanLimit) | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="100000"
+                                 [initialValue]="cumulativeFederalLoanAmount"
+                                 [step]="sliderStep"
+                                 [color]="'#0866A0'"
+                                 [isInteractive]="false"></roc-lib-slider-circle>
+
+        </div>
+
+
+        <!-- PRIVATE LOAN -->
+        <div class="flex-1">
+
+          <h3>Private Loan</h3>
+          <h5>({{cumulativeNetPrice | currencySuffix}} max)</h5>
+          <roc-lib-slider-circle [minimum]="0"
+                                 [maximum]="cumulativeNetPrice"
+                                 [initialValue]="cumulativePrivateLoanAmount"
+                                 [step]="sliderStep"
+                                 [color]="'#BC0000'"
+                                 [isInteractive]="false"></roc-lib-slider-circle>
+
+        </div>
+
+
+      </section>
+    </div>

@@ -1,0 +1,15 @@
+.mat-form-field.mat-form-field-appearance-legacy {
+  .mat-form-field-infix {
+    padding-bottom: 0;
+    padding-top: 0.25rem;
+    .mat-form-field-label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: rgb(26, 32, 44);
+      line-height: 1.25rem;
+    }
+  }
+  .mat-form-field-suffix {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}

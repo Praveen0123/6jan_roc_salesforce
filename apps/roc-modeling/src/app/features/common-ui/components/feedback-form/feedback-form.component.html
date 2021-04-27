@@ -1,0 +1,284 @@
+<section class="flex space-x-64">
+  <!-- HEADIND -->
+  <div class="flex-9">
+    <h1><b>Feedback Form</b></h1>
+  </div>
+
+  <!-- POPUP CLOSE ICON -->
+  <div class="pl-10 text-sm cursor-pointer flex-3">
+    <mat-icon aria-hidden="false"
+              class="pl-16 ml-32 text-blue-600"
+              aria-label="clear"
+              (click)="close()">clear</mat-icon>
+  </div>
+</section>
+<!-- HORIZONTAL LINE -->
+<div class="mt-2 border-t-2 border-blue-400"></div>
+<section class="flex space-x-64">
+  <!-- HEADIND -->
+  <div class="mt-2 flex-9">
+    <p>Thank you for using Return on College. Please fill out the form and click on the Send button. We appreciate all questions and feedback.</p>
+  </div>
+
+
+</section>
+<section class="relative mt-5">
+  <form [formGroup]="feedbackForm">
+    <!-- DEGREE ALIGNMENT FILTER -->
+    <div>
+      <h3 class="font-medium">What is the feedback about?</h3>
+      <mat-form-field class="w-64 text-lg"
+                      appearance="outline">
+        <!-- <mat-label><b>What is the feedback about?</b></mat-label> -->
+        <mat-select (selectionChange)="
+                feedbackFormSelected($event.value)
+              "
+                    placeholder="Please Select"
+                    formControlName="feedbackFormSelection">
+          <mat-option [value]="option"
+                      *ngFor="let option of degreeAlignmentWithCareer">{{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </form>
+</section>
+<section class=""></section>
+<section *ngIf="feedbackSelectedValue == 'Application defect'">
+  <!-- <form [formGroup]="applicationDefect"> -->
+  <!-- DEGREE ALIGNMENT FILTER -->
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium">Your Name <span class="font-bold text-red-600">*</span></h3>
+
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder="">
+
+
+      </mat-form-field>
+    </div>
+
+    <div class="flex-4">
+      <h3 class="font-medium">Email Address <span class="font-bold text-red-600">*</span></h3>
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder=""
+               required>
+
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex-4">
+    <h3 class="font-medium">Please provide a detailed description of the steps taken that produced the defect <span class="font-bold text-red-600">*</span></h3>
+    <mat-form-field class="w-full"
+                    appearance="outline">
+
+      <textarea matInput></textarea>
+
+
+
+    </mat-form-field>
+  </div>
+  <div class="flex-4">
+    <h3 class="font-medium">Describe the error encountered or copy/paste error code <span class="font-bold text-red-600">*</span></h3>
+    <mat-form-field class="w-full"
+                    appearance="outline">
+
+      <textarea matInput></textarea>
+
+
+
+    </mat-form-field>
+  </div>
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium"><span class="font-bold text-red-600">* </span> Required Field</h3>
+
+    </div>
+
+    <div class="ml-20 flex-4">
+      <button class="content-end px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 ml-80">
+        Submit
+      </button>
+    </div>
+  </div>
+  <!-- </form> -->
+</section>
+
+<section class="relative mt-5"
+         *ngIf="feedbackSelectedValue == 'Suggestion'">
+  <!-- <form [formGroup]="applicationDefect"> -->
+  <!-- DEGREE ALIGNMENT FILTER -->
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium">Your Name <span class="font-bold text-red-600">*</span></h3>
+
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder="">
+
+
+      </mat-form-field>
+    </div>
+
+    <div class="flex-4">
+      <h3 class="font-medium">Email Address <span class="font-bold text-red-600">*</span></h3>
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder=""
+               required>
+
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex-4">
+    <h3 class="font-medium">Please provide your suggestion <span class="font-bold text-red-600">*</span></h3>
+    <mat-form-field class="w-full"
+                    appearance="outline">
+
+      <textarea matInput></textarea>
+
+
+
+    </mat-form-field>
+  </div>
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium"><span class="font-bold text-red-600">* </span> Required Field</h3>
+
+    </div>
+
+    <div class="ml-20 flex-4">
+      <button class="content-end px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 ml-80">
+        Submit
+      </button>
+    </div>
+  </div>
+  <!-- </form> -->
+</section>
+<section class="relative mt-5"
+         *ngIf="feedbackSelectedValue == 'Compliment'">
+  <!-- <form [formGroup]="applicationDefect"> -->
+  <!-- DEGREE ALIGNMENT FILTER -->
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium">Your Name <span class="font-bold text-red-600">*</span></h3>
+
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder="">
+
+
+      </mat-form-field>
+    </div>
+
+    <div class="flex-4">
+      <h3 class="font-medium">Email Address <span class="font-bold text-red-600">*</span></h3>
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder=""
+               required>
+
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex-4">
+    <h3 class="font-medium">Please share a positive experience of what you liked <span class="font-bold text-red-600">*</span></h3>
+    <mat-form-field class="w-full"
+                    appearance="outline">
+
+      <textarea rows="3"
+                matInput></textarea>
+
+
+
+    </mat-form-field>
+  </div>
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium"><span class="font-bold text-red-600">* </span> Required Field</h3>
+
+    </div>
+
+    <div class="ml-20 flex-4">
+      <button class="content-end px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 ml-80">
+        Submit
+      </button>
+    </div>
+  </div>
+  <!-- </form> -->
+</section>
+<section class="relative mt-5"
+         *ngIf="feedbackSelectedValue == 'General Question'">
+  <!-- <form [formGroup]="applicationDefect"> -->
+  <!-- DEGREE ALIGNMENT FILTER -->
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium">Your Name <span class="font-bold text-red-600">*</span></h3>
+
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder="">
+
+
+      </mat-form-field>
+    </div>
+
+    <div class="flex-4">
+      <h3 class="font-medium">Email Address <span class="font-bold text-red-600">*</span></h3>
+      <mat-form-field class="w-72"
+                      appearance="outline">
+
+        <input matInput
+               placeholder=""
+               required>
+
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex-4">
+    <h3 class="font-medium">Please provide your question <span class="font-bold text-red-600">*</span></h3>
+    <mat-form-field class="w-full"
+                    appearance="outline">
+
+      <textarea rows="3"
+                matInput></textarea>
+
+
+
+    </mat-form-field>
+  </div>
+  <div class="grid grid-flow-col grid-rows-1 gap-2">
+    <div class="flex-4">
+      <h3 class="font-medium"><span class="font-bold text-red-600">* </span> Required Field</h3>
+
+    </div>
+
+    <div class="ml-20 flex-4">
+      <button class="content-end px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 ml-80">
+        Submit
+      </button>
+    </div>
+  </div>
+  <!-- </form> -->
+</section>

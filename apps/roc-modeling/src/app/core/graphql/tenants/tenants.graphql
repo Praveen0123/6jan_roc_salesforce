@@ -1,0 +1,10 @@
+query tenantByHostName($hostName: String!)
+{
+  tenantByHostName(hostName: $hostName)
+  {
+    id
+    name
+    hostName
+    description
+  }
+}

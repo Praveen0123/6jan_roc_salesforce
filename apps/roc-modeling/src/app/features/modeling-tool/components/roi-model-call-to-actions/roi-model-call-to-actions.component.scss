@@ -1,0 +1,10 @@
+@import 'common';
+
+:host {
+  background-color: mat-color($primary, 25);
+  display         : block;
+  margin-top      : rem-calc(-16);
+  margin-left     : rem-calc(-21);
+  margin-right    : rem-calc(-21);
+  padding-left    : rem-calc(20);
+}

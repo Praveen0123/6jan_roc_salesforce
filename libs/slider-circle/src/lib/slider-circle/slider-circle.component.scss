@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+svg {
+  ::ng-deep {
+    .sliderValue {
+      font-size: 1.125rem;
+      user-select: none;
+    }
+  }
+}

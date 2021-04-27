@@ -1,0 +1,20 @@
+$base-size: 0.75rem;
+
+.mat-checkbox {
+  .mat-checkbox-layout {
+    .mat-checkbox-inner-container {
+      height: $base-size;
+      width: $base-size;
+
+      .mat-checkbox-ripple {
+        left: calc(50% - (#{$base-size} * 1.5 / 2));
+        top: calc(50% - (#{$base-size} * 1.5 / 2));
+        height: $base-size * 1.5;
+        width: $base-size * 1.5;
+      }
+    }
+    .mat-checkbox-label {
+      font-size: $base-size;
+    }
+  }
+}

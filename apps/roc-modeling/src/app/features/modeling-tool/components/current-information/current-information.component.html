@@ -1,0 +1,91 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="onFormSubmit()">
+
+  <section class="flex flex-col w-full">
+
+    <!-- AGE  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Age"
+                  formControlName="currentAge"
+                  [min]="minimumAge"
+                  [max]="maximumAge"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+
+    <!-- OCCUPATION -->
+    <div class="mt-1">
+
+      <vp-auto-complete formControlName="currentOccupation"
+                        [touched]="formGroup.get('currentOccupation').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Occupation"
+                        [label]="'Current Occupation (optional)'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'Enter Keywords'"
+                        [isRequired]="false"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+    </div>
+
+
+    <!-- EDUCATION LEVEL -->
+    <div class="my-1">
+      <mat-form-field class="w-full">
+        <mat-label>Education level</mat-label>
+        <mat-select placeholder="Choose Education level"
+                    formControlName="educationLevel"
+                    [compareWith]="compareFunction"
+                    required>
+
+          <mat-option *ngFor="let item of availableEducationLevel; let i=index;"
+                      [value]="item">
+            {{availableEducationLevel[i].displayName}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <!-- CURRENT LOCATION  -->
+    <div class="my-1">
+      <vp-auto-complete formControlName="currentLocation"
+                        [touched]="formGroup.get('currentLocation').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Location"
+                        [label]="'Current Location'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'zip, or city, state'"
+                        [isRequired]="true"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+    </div>
+
+
+    <!-- CTA -->
+    <!-- <div class="my-1">
+      <button mat-flat-button
+              color="primary"
+              type="submit"
+              [disabled]="!formGroup.valid"
+              class="self-center uppercase">
+        <span [ngClass]="{'text-white':formGroup.valid}">Calculate</span>
+      </button>
+    </div> -->
+
+  </section>
+
+</form>
+
+
+<!--
+<p>
+  Form is: {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<p>
+  Form is: {{formGroup.dirty ? 'Dirty' : 'Clean'}}
+</p>
+<pre>
+{{formGroup.value | json}}
+</pre>
+-->

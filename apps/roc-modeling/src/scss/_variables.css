@@ -1,0 +1,51 @@
+/* REGISTER FONTS */
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/assets/fonts/SourceSansPro-Bold.woff2') format('woff2'),
+    url('/assets/fonts/SourceSansPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/assets/fonts/SourceSansPro-Regular.woff2') format('woff2'),
+    url('/assets/fonts/SourceSansPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/assets/fonts/SourceSansPro-SemiBold.woff2') format('woff2'),
+    url('/assets/fonts/SourceSansPro-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('/assets/fonts/SourceSansPro-Light.woff2') format('woff2'),
+    url('/assets/fonts/SourceSansPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* COLORS */
+:root {
+  --color-primary: #0866a0;
+  --color-currentState-primary: var(--color-primary);
+  --color-currentState-secondary: #e2edf3;
+  --color-goalState-primary: #349b38;
+  --color-goalState-secondary: #cefdd0;
+  --color-alumniState-primary: #d09100;
+  --color-alumniState-secondary: #fadd99;
+  --color-loanAccumulation-primary: #9400a2;
+  --color-loanAccumulation-secondary: #e9d8fd;
+  --color-loanPayoff-primary: #b20000;
+  --color-loanPayoff-secondary: #fdc6c6;
+}

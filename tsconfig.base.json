@@ -1,0 +1,51 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": [
+      "es2017",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@roc-modeling-gateway-models": [
+        "apps/roc-modeling-gateway/src/app/generated/models"
+      ],
+      "@roc-modeling": [
+        "apps/roc-modeling/src/app"
+      ],
+      "@returnon-college/slider-circle": [
+        "libs/slider-circle/src/index.ts"
+      ]
+    },
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "sourceMap": true,
+    "strict": false,
+    "strictNullChecks": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
+}

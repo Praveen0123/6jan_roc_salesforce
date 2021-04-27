@@ -1,0 +1,52 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
+    }
+  ],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@app/*": [
+        "apps/roc-modeling/src/app/*"
+      ],
+      "@config": [
+        "apps/roc-modeling/src/app/config/config"
+      ],
+      "@core/*": [
+        "apps/roc-modeling/src/app/core/*"
+      ],
+      "@env/*": [
+        "apps/roc-modeling/src/environments/*"
+      ],
+      "@features/*": [
+        "apps/roc-modeling/src/app/features/*"
+      ],
+      "@gql": [
+        "apps/roc-modeling/src/generated/graphql"
+      ],
+      "@models/*": [
+        "apps/roc-modeling/src/app/core/models/*"
+      ],
+      "@shared/*": [
+        "apps/roc-modeling/src/app/shared/*"
+      ],
+      "@state/*": [
+        "apps/roc-modeling/src/app/+state/*"
+      ],
+      "@returnon-college/slider-circle": [
+        "libs/slider-circle/src/index.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,239 @@
+<form [formGroup]="formGroup">
+  <h1 mat-dialog-title>Save Your Model</h1>
+
+  <div mat-dialog-content
+       class="my-3">
+
+
+    <mat-form-field class="w-full">
+      <mat-label>Model Name</mat-label>
+      <input matInput
+             formControlName="modelName">
+    </mat-form-field>
+
+
+    <span *ngIf="hasCareerGoalChangedFromDefault || hasEducationChangedFromDefault"
+          class="text-xs text-gray-400">
+      uncheck items to remove from new model
+    </span>
+
+    <fieldset *ngIf="hasCareerGoalChangedFromDefault">
+      <legend>Goal</legend>
+      <section class="flex flex-col">
+
+
+        <!-- LOCATION -->
+        <div *ngIf="changeMapCareerGoal.get('location')">
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isLocationSaved">
+
+            <span class="mr-1.5 italic">
+              Location:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isLocationSaved.value)}">
+              {{careerGoal.location.cityName}}, {{careerGoal.location.stateAbbreviation}}
+            </span>
+
+          </mat-checkbox>
+        </div>
+
+        <!-- OCCUPATION -->
+        <div *ngIf="changeMapCareerGoal.get('occupation')">
+
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isOccupationSaved">
+
+            <span class="mr-1.5 italic">
+              Occupation:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isOccupationSaved.value)}">
+              {{careerGoal.occupation.title}}
+            </span>
+
+          </mat-checkbox>
+
+        </div>
+
+        <!-- DEGREE LEVEL -->
+        <div *ngIf="changeMapCareerGoal.get('degreeLevel')">
+
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isDegreeLevelSaved">
+
+            <span class="mr-1.5 italic">
+              Degree Level:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isDegreeLevelSaved.value)}">
+              {{careerGoal.degreeLevel.displayName}}
+            </span>
+
+          </mat-checkbox>
+
+        </div>
+
+        <!-- DEGREE PROGRAM -->
+        <div *ngIf="changeMapCareerGoal.get('degreeProgram')">
+
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isDegreeProgramSaved">
+
+            <span class="mr-1.5 italic">
+              Degree Program:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isDegreeProgramSaved.value)}">
+              {{careerGoal.degreeProgram.cipTitle}}
+            </span>
+
+          </mat-checkbox>
+
+        </div>
+
+        <!-- RETIREMENT AGE -->
+        <div *ngIf="changeMapCareerGoal.get('retirementAge')">
+
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isRetirementAgeSaved">
+
+            <span class="mr-1.5 italic">
+              Retirement age of:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isRetirementAgeSaved.value)}">
+              {{careerGoal.retirementAge}}
+            </span>
+
+          </mat-checkbox>
+
+        </div>
+
+
+      </section>
+    </fieldset>
+
+
+    <fieldset *ngIf="hasEducationChangedFromDefault"
+              class="my-3">
+      <legend>Education</legend>
+      <section class="flex flex-col">
+
+
+        <!-- INSTITUTION -->
+        <div *ngIf="changeMapEducation.get('institution')">
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isInstitutionSaved">
+
+            <span class="mr-1.5 italic">
+              Institution:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isInstitutionSaved.value)}">
+              {{educaionCost.institution.name}}
+            </span>
+
+          </mat-checkbox>
+        </div>
+
+
+        <!-- START YEAR -->
+        <div *ngIf="changeMapEducation.get('startYear')">
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isStartSchoolSaved">
+
+            <span class="mr-1.5 italic">
+              Start year:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isStartSchoolSaved.value)}">
+              {{educaionCost.startYear}}
+            </span>
+
+          </mat-checkbox>
+        </div>
+
+
+        <!-- PART TIME / FULL TIME -->
+        <div *ngIf="changeMapEducation.get('isFulltime')">
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isPartTimeFullTimeSaved">
+
+            <span class="mr-1.5 italic">
+              Part Time/Full Time:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isPartTimeFullTimeSaved.value)}">
+              <span *ngIf="!educaionCost.isFulltime">Part Time</span>
+              <span *ngIf="educaionCost.isFulltime">Full Time</span>
+            </span>
+
+          </mat-checkbox>
+        </div>
+
+
+        <!-- YEARS TO COMPLETE -->
+        <div *ngIf="changeMapEducation.get('yearsToCompleteDegree')">
+          <mat-checkbox [color]="'primary'"
+                        formControlName="isYearsToCompleteSaved">
+
+            <span class="mr-1.5 italic">
+              Years to complete degree:
+            </span>
+
+            <span [ngClass]="{'line-through text-gray-400': (!formGroup.controls.isYearsToCompleteSaved.value)}">
+              {{educaionCost.yearsToCompleteDegree}}
+            </span>
+
+          </mat-checkbox>
+        </div>
+
+
+      </section>
+    </fieldset>
+
+  </div>
+
+
+  <div mat-dialog-actions>
+
+    <section class="flex justify-between w-full">
+
+      <div class="flex-1">
+
+        <roc-button-with-icon [fontSet]="'fas'"
+                              [fontIcon]="'times'"
+                              title='Cancel'
+                              (onClick)="onCancelClick()"></roc-button-with-icon>
+
+      </div>
+
+      <div class="flex-auto text-right">
+
+        <roc-button-with-icon [fontSet]="'fas'"
+                              [fontIcon]="'plus'"
+                              title='Create New Model'
+                              (onClick)="onSaveClick()"></roc-button-with-icon>
+
+      </div>
+
+    </section>
+
+
+
+
+
+
+  </div>
+</form>
+
+<!--
+<p>
+  Form is: {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<pre>
+{{formGroup.value | json}}
+</pre>
+-->

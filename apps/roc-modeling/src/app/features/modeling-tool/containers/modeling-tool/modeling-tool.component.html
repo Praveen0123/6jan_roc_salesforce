@@ -1,0 +1,43 @@
+<ng-container *ngIf="{
+    roiModelDto: roiModelDto$ |async,
+    accordionState: accordionState$ | async
+  } as data">
+
+
+  <section class="flex">
+
+
+    <aside class="flex-none shadow-md w-96">
+
+      <roc-modeling-tool-controls [roiModelDto]="data.roiModelDto"
+                                  [accordionState]="data.accordionState"
+                                  (onCurrentInformationSubmitted)="onCurrentInformationSubmitted($event)"
+                                  (onCareerGoalSubmitted)="onCareerGoalSubmitted($event)"
+                                  (onEducationCostSubmitted)="onEducationCostSubmitted($event)"
+                                  (onEducationFinancingSubmitted)="onEducationFinancingSubmitted($event)"
+                                  (onResetAll)="onResetAll()"
+                                  (onPanelChange)="onPanelChange($event)"></roc-modeling-tool-controls>
+
+    </aside>
+
+    <section class="flex-auto ml-4">
+      <div class="px-5 py-4 mt-4 mr-4 bg-white shadow-md place-items-center">
+
+
+        <roc-roi-model-call-to-actions [roiModelDto]="data.roiModelDto"
+                                       (onClone)="onClone($event)"
+                                       (onShare)="onShare($event)"></roc-roi-model-call-to-actions>
+
+
+        <roc-user-profile-summary [roiModelDto]="data.roiModelDto"></roc-user-profile-summary>
+
+
+        <roc-lifetime-earnings-graph></roc-lifetime-earnings-graph>
+
+
+      </div>
+    </section>
+
+  </section>
+
+</ng-container>

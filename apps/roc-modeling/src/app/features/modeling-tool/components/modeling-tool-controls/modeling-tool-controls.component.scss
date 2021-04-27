@@ -1,0 +1,22 @@
+@import 'common';
+
+:host {
+  display: block;
+}
+
+.mat-expansion-panel-header
+{
+  background-color: mat-color($primary, 50);
+
+  &:hover{
+    background-color: mat-color($primary, 50);
+  }
+}
+
+
+.step-number{
+  border: solid 1px mat-color($primary, 500);
+  border-radius: 50%;
+  color: mat-color($primary, 500);
+  padding: 10px;
+}

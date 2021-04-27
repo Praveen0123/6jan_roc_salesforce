@@ -1,0 +1,25 @@
+mutation saveRoiModel($roiModelInput: RoiModelInput!)
+{
+  saveRoiModel(roiModelInput: $roiModelInput)
+  {
+    ...roiModelFragment
+  }
+}
+
+
+query roiModel($tenantId:ID!, $userId:ID!)
+{
+  roiModel(tenantId: $tenantId, userId: $userId)
+  {
+    ...roiModelFragment
+  }
+}
+
+
+fragment roiModelFragment on RoiModel
+{
+    tenantId
+    userId
+    roiAggregateId
+    model
+}

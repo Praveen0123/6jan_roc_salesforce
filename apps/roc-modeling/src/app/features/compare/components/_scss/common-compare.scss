@@ -1,0 +1,29 @@
+@import 'common';
+
+.section-header-container {
+  >div {
+    background-color: mat-color($primary, A700);
+    color           : mat-color($primary, 2);
+    padding         : rem-calc(4) 0;
+    padding-left    : rem-calc(12);
+  }
+}
+
+.data-container {
+  >div {
+    border-bottom: solid 1px mat-color($primary, 50);
+    padding      : rem-calc(4) 0;
+    padding-left : rem-calc(12);
+  }
+}
+
+.titles-container {
+
+  >div {
+    background-color: mat-contrast($primary, 500);
+    border-bottom   : solid 1px mat-color($primary, 50);
+    padding         : rem-calc(4) 0;
+    padding-left    : rem-calc(12);
+  }
+
+}

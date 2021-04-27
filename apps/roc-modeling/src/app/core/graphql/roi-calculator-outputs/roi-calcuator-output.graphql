@@ -1,0 +1,128 @@
+query roiCalculatorOutput(
+  $currentZipCode: String!
+  $goalZipCode: String!
+  $distance: Int!
+  $currentStateOnetCode: [String]!
+  $goalStateOnetCode: [String]!
+  $startDegreeLevel: Int!
+  $endDegreeLevel: Int!
+  $yearsOfCollege: Int!
+  $yearsToRetirement: Int!
+  $tuitionAndFees: Float!
+  $tuitionAndFeesRaise: Float!
+  $livingArrangementCost: Float!
+  $livingArrangementCostRaise: Float!
+  $independent: Boolean!
+  $ibrFederal: Boolean!
+  $monthsToPayoffFederalLoan: Int!
+  $monthsToPayoffPrivateLoan: Int!
+  $annualExpenseFromSavings: [Float!]!
+  $efc: Float
+  $participation: Float!
+  $workDuringStudy: Boolean!
+  $ipedsGraduationTimeFactor: [Float!]!
+  $ipedsGraduationProbability: [Float!]!
+  $ipedsRetentionRate: [Float!]!
+  $grantOrScholarshipAidExcludingPellGrant: Float!
+  $startingYearDelay: Int!
+  $noLoans: Boolean!
+) {
+  goalState: roiCalculatorOutput(
+    currentZipCode: $currentZipCode
+    goalZipCode: $goalZipCode
+    distance: $distance
+    currentStateOnetCode: $currentStateOnetCode
+    goalStateOnetCode: $goalStateOnetCode
+    startDegreeLevel: $startDegreeLevel
+    endDegreeLevel: $endDegreeLevel
+    yearsOfCollege: $yearsOfCollege
+    yearsToRetirement: $yearsToRetirement
+    tuitionAndFees: $tuitionAndFees
+    tuitionAndFeesRaise: $tuitionAndFeesRaise
+    livingArrangementCost: $livingArrangementCost
+    livingArrangementCostRaise: $livingArrangementCostRaise
+    independent: $independent
+    ibrFederal: $ibrFederal
+    monthsToPayoffFederalLoan: $monthsToPayoffFederalLoan
+    monthsToPayoffPrivateLoan: $monthsToPayoffPrivateLoan
+    annualExpenseFromSavings: $annualExpenseFromSavings
+    efc: $efc
+    participation: $participation
+    workDuringStudy: $workDuringStudy
+    ipedsGraduationTimeFactor: $ipedsGraduationTimeFactor
+    ipedsGraduationProbability: $ipedsGraduationProbability
+    ipedsRetentionRate: $ipedsRetentionRate
+    grantOrScholarshipAidExcludingPellGrant: $grantOrScholarshipAidExcludingPellGrant
+    startingYearDelay: $startingYearDelay
+    noLoans: $noLoans
+  ) {
+    yearsInCollege
+    yearsToRoiBreakEven25
+    yearsToRoiBreakEven50
+    yearsToRoiBreakEven75
+    earningCumulativeProb25
+    earningCumulativeProb50
+    earningCumulativeProb75
+    monthlySalary25
+    monthlySalary50
+    monthlySalary75
+    monthlyLoanPayment25
+    monthlyLoanPayment50
+    monthlyLoanPayment75
+    roi25
+    roi50
+    roi75
+    lifeAnnualizedRoi25
+    lifeAnnualizedRoi50
+    lifeAnnualizedRoi75
+    lifeRevenue25
+    lifeRevenue50
+    lifeRevenue75
+    investment25
+    investment50
+    investment75
+    outOfPocket25
+    outOfPocket50
+    outOfPocket75
+    federalLoanAveraged
+    privateLoanAveraged
+    time
+  }
+  currentState: roiCalculatorOutput(
+    currentZipCode: $currentZipCode
+    goalZipCode: $currentZipCode
+    distance: $distance
+    currentStateOnetCode: $currentStateOnetCode
+    goalStateOnetCode: $currentStateOnetCode
+    startDegreeLevel: $startDegreeLevel
+    endDegreeLevel: $startDegreeLevel
+    yearsOfCollege: 0
+    yearsToRetirement: $yearsToRetirement
+    tuitionAndFees: 0
+    tuitionAndFeesRaise: 0
+    livingArrangementCost: 0
+    livingArrangementCostRaise: 0
+    independent: $independent
+    ibrFederal: $ibrFederal
+    monthsToPayoffFederalLoan: 0
+    monthsToPayoffPrivateLoan: 0
+    annualExpenseFromSavings: [0]
+    efc: 0
+    participation: 1
+    workDuringStudy: false
+    ipedsGraduationTimeFactor: [1.0, 1.5, 2.0]
+    ipedsGraduationProbability: [1.0, 1.0, 1.0]
+    ipedsRetentionRate: [1.0]
+    grantOrScholarshipAidExcludingPellGrant: 0
+    startingYearDelay: 0,
+    noLoans: true
+  ) {
+    earningCumulativeProb25
+    earningCumulativeProb50
+    earningCumulativeProb75
+    monthlySalary25
+    monthlySalary50
+    monthlySalary75
+    time
+  }
+}

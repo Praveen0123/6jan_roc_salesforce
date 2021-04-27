@@ -1,0 +1,43 @@
+{
+  "name": "roc-modeling-gateway",
+  "version": "0.0.1",
+  "description": "returnon.college gateway graphql api for modeling tool",
+  "main": "./main.js",
+  "engines": {
+    "node": "12.18.4"
+  },
+  "files": [
+    "/src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vantagepointlabs/returnon-college-nx.git"
+  },
+  "author": "Tom Schreck <tom.schreck@vantagepoint-inc.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vantagepointlabs/returnon-college-nx/issues"
+  },
+  "homepage": "https://github.com/vantagepointlabs/returnon-college-nx#readme",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.2.2",
+    "@apollo/federation": "^0.20.4",
+    "@apollo/gateway": "^0.21.0",
+    "@graphql-modules/core": "^0.7.17",
+    "@vantage-point/ddd-core": "^2.0.0",
+    "apollo-server": "^2.19.0",
+    "dotenv": "^6.2.0",
+    "got": "^11.8.1",
+    "graphql-import-node": "0.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.12.1",
+    "module-alias": "^2.2.2",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "node main.js"
+  }
+}

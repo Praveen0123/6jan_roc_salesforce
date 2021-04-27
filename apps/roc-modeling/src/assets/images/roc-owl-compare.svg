@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 191.4 196" style="enable-background:new 0 0 191.4 196;" xml:space="preserve">
+<linearGradient id="Ellipse_323_1_" gradientUnits="userSpaceOnUse" x1="-582.9384" y1="481.011" x2="-581.9384" y2="481.011" gradientTransform="matrix(191.4 0 0 -191.4 111574.3984 92165.75)">
+	<stop  offset="0" style="stop-color:#8EFFEB"/>
+	<stop  offset="0.13" style="stop-color:#8BF3DF"/>
+	<stop  offset="0.44" style="stop-color:#84DDCA"/>
+	<stop  offset="0.74" style="stop-color:#80D0BC"/>
+	<stop  offset="1" style="stop-color:#7FCBB8"/>
+</linearGradient>
+<circle id="Ellipse_323" style="opacity:0.16;fill:url(#Ellipse_323_1_);enable-background:new    ;" cx="95.7" cy="100.3" r="95.7"/>
+<linearGradient id="Ellipse_324_1_" gradientUnits="userSpaceOnUse" x1="-582.2197" y1="480.6614" x2="-581.2197" y2="480.6614" gradientTransform="matrix(155.012 0 0 -155.012 90265.6875 74612.0312)">
+	<stop  offset="0" style="stop-color:#8EFFEB"/>
+	<stop  offset="0.13" style="stop-color:#8BF3DF"/>
+	<stop  offset="0.44" style="stop-color:#84DDCA"/>
+	<stop  offset="0.74" style="stop-color:#80D0BC"/>
+	<stop  offset="1" style="stop-color:#7FCBB8"/>
+</linearGradient>
+<circle id="Ellipse_324" style="fill:url(#Ellipse_324_1_);" cx="92.2" cy="103.7" r="77.5"/>
+<linearGradient id="Ellipse_325_1_" gradientUnits="userSpaceOnUse" x1="-582.6452" y1="480.8684" x2="-581.6452" y2="480.8684" gradientTransform="matrix(174.676 0 0 -174.676 101780.7031 84098.375)">
+	<stop  offset="0" style="stop-color:#8EFFEB"/>
+	<stop  offset="0.13" style="stop-color:#8BF3DF"/>
+	<stop  offset="0.44" style="stop-color:#84DDCA"/>
+	<stop  offset="0.74" style="stop-color:#80D0BC"/>
+	<stop  offset="1" style="stop-color:#7FCBB8"/>
+</linearGradient>
+<circle id="Ellipse_325" style="opacity:0.28;fill:url(#Ellipse_325_1_);enable-background:new    ;" cx="93.9" cy="102.2" r="87.3"/>
+<path id="Path_2337" style="fill:#D3D3D3;" d="M100.5,117.4c-8.7-4.2-17-4.4-22.6-4.5c-5.8-0.1-15.2-0.3-24.9,4.5
+	c-13.9,6.8-24.5,21.8-21.6,26.9c2.4,4.2,13.9,2,23.7-1.7c2.7,11,11.7,34.1,22.5,34.1c10.6,0,19.5-22.9,22.3-33.5
+	c9.5,3.3,19.9,5,22.2,1.1C125.1,139.2,114.4,124.2,100.5,117.4z"/>
+<path id="Rectangle_955" style="fill:#D3D3D3;" d="M64.9,26.3h22.6c22.2,0,40.2,18,40.2,40.2l0,0c0,22.2-18,40.2-40.2,40.2H64.9
+	c-22.2,0-40.2-18-40.2-40.2l0,0C24.7,44.3,42.7,26.3,64.9,26.3z"/>
+<path id="Path_2338" style="fill:#4D6565;" d="M30.5,75.8h-2.7c-4.6,0-8.3-3.7-8.3-8.3v-4.7c0-4.6,3.7-8.3,8.3-8.3h2.7V75.8z"/>
+<path id="Path_2339" style="fill:#4D6565;" d="M126.8,75.8h2.7c4.6,0,8.3-3.7,8.3-8.3c0,0,0,0,0,0v-4.7c0-4.6-3.7-8.3-8.3-8.3
+	c0,0,0,0,0,0h-2.7V75.8z"/>
+<path id="Rectangle_956" style="fill:#EAEAEA;" d="M67.7,26.3h22.6c22.2,0,40.2,18,40.2,40.2l0,0c0,22.2-18,40.2-40.2,40.2H67.7
+	c-22.2,0-40.2-18-40.2-40.2l0,0C27.5,44.3,45.5,26.3,67.7,26.3z"/>
+<path id="Path_2340" style="fill:#151528;" d="M108.1,51c1.6-1.1,3.3-2.1,5.1-2.9l4.2-1.9H93.3c-8.1,0-14.7,6.6-14.7,14.7
+	c0-8.1-6.6-14.7-14.7-14.7H39.8l4.3,1.9c1.8,0.8,3.5,1.8,5.1,2.9C39.7,56,36.1,67.6,41,77c4.9,9.4,16.5,13.1,26,8.2
+	c1.6-0.8,3-1.9,4.3-3.1l7.4,12.5L86,82.1c7.7,7.3,19.9,7,27.2-0.8c7.3-7.7,7-19.9-0.8-27.2C111.2,52.9,109.7,51.9,108.1,51L108.1,51
+	z"/>
+<circle id="Ellipse_326" style="fill:#FFFFFF;" cx="58.1" cy="68.1" r="13.3"/>
+<circle id="Ellipse_327" style="fill:#7FCBB8;" cx="58.1" cy="68.1" r="8"/>
+<circle id="Ellipse_328" style="fill:#FFFFFF;" cx="99.2" cy="68.1" r="13.3"/>
+<circle id="Ellipse_329" style="fill:#7FCBB8;" cx="99.2" cy="68.1" r="8"/>
+<path id="Path_2341" style="fill:#202C2C;" d="M62.9,11.9v16.6c0,5.1,7.4,9.3,16.5,9.3s16.5-4.1,16.5-9.3V11.9H62.9z"/>
+<path id="Path_2342" style="fill:#EAEAEA;" d="M102.7,117.4c-8.7-4.2-17-4.4-22.6-4.5c-5.8-0.1-15.2-0.3-24.9,4.5
+	c-13.9,6.8-24.5,21.8-21.6,26.9c2.4,4.2,13.9,2,23.7-1.7c2.7,11,11.7,34.1,22.5,34.1c10.6,0,19.5-22.9,22.3-33.5
+	c9.5,3.3,19.9,5,22.2,1.1C127.3,139.2,116.7,124.2,102.7,117.4z"/>
+<path style="opacity:6.000000e-02;fill:#151528;enable-background:new    ;" d="M124.2,144.4c3-5.2-7.7-20.2-21.6-26.9
+	c-8.7-4.2-17-4.4-22.6-4.5c-4.8-0.1-12-0.2-19.9,2.4c11,5.5,25.2,16.9,37.4,40.8c2-4.8,3.6-9.5,4.5-12.9
+	C111.5,146.6,121.9,148.3,124.2,144.4z"/>
+<linearGradient id="Path_2344_1_" gradientUnits="userSpaceOnUse" x1="-557.2045" y1="474.3577" x2="-557.2045" y2="475.1252" gradientTransform="matrix(20.71 0 0 -36.839 11618.8105 17620.4551)">
+	<stop  offset="0" style="stop-color:#4D6565"/>
+	<stop  offset="1" style="stop-color:#151528"/>
+</linearGradient>
+<path id="Path_2344" style="fill:url(#Path_2344_1_);" d="M79.1,149.1L79.1,149.1c-5.7,0-10.4-4.6-10.4-10.4c0,0,0,0,0,0V113h20.7
+	v25.8C89.5,144.4,84.8,149.1,79.1,149.1C79.1,149.1,79.1,149.1,79.1,149.1L79.1,149.1z"/>
+<path id="Rectangle_958" style="fill:#FEFEFD;" d="M74.8,121.2h8.4c0.9,0,1.7,0.7,1.7,1.7l0,0c0,0.9-0.7,1.7-1.7,1.7h-8.4
+	c-0.9,0-1.7-0.7-1.7-1.7l0,0C73.1,122,73.9,121.2,74.8,121.2z"/>
+<path id="Rectangle_960" style="fill:#EEFFD7;" d="M74.8,127.3h8.4c0.9,0,1.7,0.7,1.7,1.7l0,0c0,0.9-0.7,1.7-1.7,1.7h-8.4
+	c-0.9,0-1.7-0.7-1.7-1.7l0,0C73.1,128.1,73.9,127.3,74.8,127.3z"/>
+<path id="Rectangle_962" style="fill:#8EFFEB;" d="M74.8,133.4h8.4c0.9,0,1.7,0.7,1.7,1.7l0,0c0,0.9-0.7,1.7-1.7,1.7h-8.4
+	c-0.9,0-1.7-0.7-1.7-1.7l0,0C73.1,134.2,73.9,133.4,74.8,133.4z"/>
+<path style="fill:#D3D3D3;" d="M56.2,131c0,0-2.2,3.5-2.5,13c1.2-0.4,2.5-0.8,3.7-1.3c0.2,0.9,0.5,1.9,0.8,3l0,0
+	C58.2,145.7,55.5,137.4,56.2,131z"/>
+<ellipse id="Ellipse_330" style="opacity:0.18;fill:#151528;enable-background:new    ;" cx="79" cy="186.9" rx="12.1" ry="3.1"/>
+<path id="Path_2347" style="fill:#324446;" d="M105.5,16v-2h-3.9L79.4,2.1L57.2,14h-3.9V16l26.2,14L105.5,16L105.5,16z"/>
+<path id="Path_2349" style="fill:#4D6565;" d="M79.4,0L53.2,13.9l26.2,14l26.2-14L79.4,0z"/>
+<circle id="Ellipse_331" style="fill:#1C2323;" cx="78.7" cy="14.1" r="2.2"/>
+<path style="fill:#FFCB58;" d="M78.3,14c-0.2-0.3-0.6-0.5-0.9-0.3l-12.6,6.7v15.2h-0.2c-0.3,0-0.5,0.2-0.5,0.5v6.8h2.6V36
+	c0-0.3-0.2-0.5-0.5-0.5h-0.2V21.2L78,14.9C78.3,14.7,78.4,14.3,78.3,14z"/>
+<circle id="Ellipse_333" style="fill:#FFFFFF;" cx="54.9" cy="63.8" r="2"/>
+<g id="Group_1026" transform="translate(49.344 58.194)">
+	<g id="Group_1025" style="opacity:0.75;">
+		<circle id="Ellipse_334" style="fill:none;" cx="5.5" cy="5.6" r="2"/>
+	</g>
+</g>
+<circle id="Ellipse_335" style="fill:#FFFFFF;" cx="102.6" cy="63.8" r="2"/>
+<g id="Group_1028" transform="translate(97.091 58.194)">
+	<g id="Group_1027" style="opacity:0.75;">
+		<circle id="Ellipse_336" style="fill:none;" cx="5.5" cy="5.6" r="2"/>
+	</g>
+</g>
+<path id="Path_2354" style="fill:#2D2012;" d="M11.5,88.7l34.6,56.1l-1.2,0.8L7.6,91.3L11.5,88.7z"/>
+<path id="Path_2355" style="fill:#EAEAEA;" d="M34.3,134.2c1.9-2.6,5.6-3.2,8.2-1.3c0.4,0.3,0.8,0.7,1.1,1.1
+	c0.3,0.4,0.5,0.8,0.7,1.2c1.3,3.3-0.6,8.1-5.2,10.5c-1.3,0.7-2.9,0.9-4.4,0.6c-1.1-0.2-2-0.8-2.7-1.6
+	C30.4,142.6,31.1,138.4,34.3,134.2z"/>
+<path id="Path_2356" style="fill:#D3D3D3;" d="M35.6,131.7c0.9-0.9,2.1-1.2,3.3-0.8c1.7,0.6,3.9,1.7,4.8,4c1.4,3.5-0.8,8.6-6,10.9
+	c-0.8,0.4-1.6,0.5-2.5,0.4c-2.6-0.3-3.6-1.5-3.9-1.8C29.6,141.9,30.8,136.5,35.6,131.7z"/>
+<circle id="Ellipse_332" style="fill:#313D3D;" cx="78.7" cy="13.8" r="2.2"/>
+</svg>

@@ -1,0 +1,4 @@
+/* add custom component classes here */
+.full-bleed-mat-dialog .mat-dialog-container {
+  @apply p-0;
+}

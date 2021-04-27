@@ -1,0 +1,53 @@
+<form [formGroup]="formGroup">
+
+  <section class="flex flex-col text-center">
+
+    <div class="my-10">
+      <roc-owl-icon></roc-owl-icon>
+    </div>
+
+    <div class="my-10">
+
+      <div class="mb-2 text-2xl font-bold text-black">What's your role?</div>
+    </div>
+
+
+    <!-- USER TYPE -->
+    <div>
+
+      <mat-radio-group formControlName="userType"
+                       class="flex flex-col">
+        <mat-radio-button *ngFor="let item of userType  | keyvalue: originalOrder"
+                          [value]="item.value">
+          {{ item.key }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+
+
+
+    <!-- CALL-TO-ACTION -->
+    <div>
+      <roc-button-with-icon [fontSet]="'fas'"
+                            [fontIcon]="'arrow-right'"
+                            title='Next'
+                            (onClick)="onSaveClick()"></roc-button-with-icon>
+
+    </div>
+
+
+  </section>
+
+</form>
+
+
+<!--
+<p>
+  Form is: {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<pre>
+{{formGroup.value | json}}
+</pre>
+-->

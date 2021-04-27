@@ -1,0 +1,150 @@
+<ng-container *ngIf="roiModelDto">
+
+  <section class="flex justify-end py-3">
+
+    <!-- START OVER -->
+    <div class="flex-none">
+
+      <roc-button-with-icon [title]="'Start Over'"
+                            [fontSet]="'fas'"
+                            [fontIcon]="'redo-alt'"
+                            (onClick)="onClickStartOver()"></roc-button-with-icon>
+
+    </div>
+
+    <!-- EXPAND/COLLAPSE ALL -->
+    <div class="flex-none">
+
+      <roc-button-with-icon [title]="'Expand All'"
+                            [fontSet]="'fas'"
+                            [fontIcon]="'expand-arrows-alt'"
+                            *ngIf="!isAccordionMultiPanel"
+                            (onClick)="onClickExpandAll()"></roc-button-with-icon>
+
+      <roc-button-with-icon [title]="'Collapse All'"
+                            [fontSet]="'fas'"
+                            [fontIcon]="'compress-arrows-alt'"
+                            *ngIf="isAccordionMultiPanel"
+                            (onClick)="onClickCollapseAll()"></roc-button-with-icon>
+
+    </div>
+
+  </section>
+
+
+
+  <mat-accordion class="example-headers-align"
+                 [multi]="isAccordionMultiPanel"
+                 displayMode="flat"
+                 #accordion="matAccordion">
+
+
+    <!-- CURRENT INFORMATION -->
+    <mat-expansion-panel [expanded]="step === AccordionPanelEnum.CURRENT_INFORMATION"
+                         (opened)="setStep(AccordionPanelEnum.CURRENT_INFORMATION)">
+
+      <!-- TITLE -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+          <roc-modeling-tool-title [ordinalPosition]="1"
+                                   [title]="'Current Information'"></roc-modeling-tool-title>
+
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- FORM -->
+      <ng-template matExpansionPanelContent>
+
+        <roc-current-information [roiModelDto]="roiModelDto"
+                                 (onCurrentInformationSubmitted)="onCurrentInformationSubmitted($event)"></roc-current-information>
+
+      </ng-template>
+
+    </mat-expansion-panel>
+
+
+
+    <!-- CAREER GOAL -->
+    <mat-expansion-panel [expanded]="step === AccordionPanelEnum.CAREER_GOAL"
+                         [disabled]="!isCurrentInformationValid"
+                         (opened)="setStep(AccordionPanelEnum.CAREER_GOAL)">
+
+      <!-- TITLE -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+          <roc-modeling-tool-title [ordinalPosition]="2"
+                                   [title]="'Goal'"></roc-modeling-tool-title>
+
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+
+      <!-- FORM -->
+      <ng-template matExpansionPanelContent>
+
+        <roc-career-goals [roiModelDto]="roiModelDto"
+                          (onCareerGoalSubmitted)="onCareerGoalSubmitted($event)"></roc-career-goals>
+
+      </ng-template>
+
+    </mat-expansion-panel>
+
+
+
+    <!-- EDUCATION COST -->
+    <mat-expansion-panel [expanded]="step === AccordionPanelEnum.EDUCATION_COST"
+                         [disabled]="!isCareerGoalValid"
+                         (opened)="setStep(AccordionPanelEnum.EDUCATION_COST)">
+
+      <!-- TITLE -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+          <roc-modeling-tool-title [ordinalPosition]="3"
+                                   [title]="'Education Cost'"></roc-modeling-tool-title>
+
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- FORM -->
+      <ng-template matExpansionPanelContent>
+
+        <roc-education-costs [roiModelDto]="roiModelDto"
+                             (onEducationCostSubmitted)="onEducationCostSubmitted($event)"></roc-education-costs>
+      </ng-template>
+
+    </mat-expansion-panel>
+
+
+
+    <!-- EDUCATION FINANCING -->
+    <mat-expansion-panel [expanded]="step === AccordionPanelEnum.EDUCATION_FINANCING"
+                         [disabled]="!isEducationCostValid"
+                         (opened)="setStep(AccordionPanelEnum.EDUCATION_FINANCING)">
+
+      <!-- TITLE -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+
+          <roc-modeling-tool-title [ordinalPosition]="4"
+                                   [title]="'Education Financing'"></roc-modeling-tool-title>
+
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- FORM -->
+      <ng-template matExpansionPanelContent>
+
+        <roc-education-financing [roiModelDto]="roiModelDto"
+                                 (onEducationFinancingSubmitted)="onEducationFinancingSubmitted($event)"></roc-education-financing>
+
+      </ng-template>
+
+    </mat-expansion-panel>
+
+
+  </mat-accordion>
+
+</ng-container>

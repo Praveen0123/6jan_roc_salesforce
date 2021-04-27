@@ -1,0 +1,51 @@
+<section class="flex flex-col">
+
+  <div (click)="onMakeActiveClick()"
+       class="cursor-pointer">
+
+    <span class="text-lg font-bold">{{roiModelDto.name}}</span>
+
+  </div>
+
+  <div (click)="onMakeActiveClick()"
+       class="cursor-pointer">
+    stats here...
+  </div>
+
+  <div (click)="onMakeActiveClick()"
+       class="cursor-pointer">
+    graph here...
+  </div>
+
+  <div>
+
+    <section class="flex">
+
+      <div class="flex-1"
+           *ngIf="isReadyForCompare">
+
+        <span class="inline-block mt-1 align-middle">
+
+          <mat-checkbox [checked]="isInCompare"
+                        (change)="onCompare($event.checked)">Add To Compare</mat-checkbox>
+
+        </span>
+
+      </div>
+
+      <div class="flex-1 text-right">
+
+        <roc-button-with-icon [fontSet]="'fas'"
+                              [fontIcon]="'times'"
+                              title='Delete'
+                              (onClick)="onDelete()"></roc-button-with-icon>
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+
+</section>

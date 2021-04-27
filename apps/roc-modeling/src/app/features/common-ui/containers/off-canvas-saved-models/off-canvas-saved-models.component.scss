@@ -1,0 +1,21 @@
+@import 'common';
+
+:host {
+  background-color: white;
+  display         : block;
+  height          : 100vh;
+  overflow        : auto;
+  padding         : rem-calc(20) 0;
+  position        : fixed;
+  right           : 0;
+  top             : rem-calc(65);
+  transform       : translateX(350px);
+  transition      : transform .5s, box-shadow .5s;
+  width           : rem-calc(350);
+  z-index         : 1001;
+
+  &.active {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    transform : translateX(0px);
+  }
+}

@@ -1,0 +1,8 @@
+@import 'common';
+
+:host {
+  border-bottom : mat-color($primary, 50) 1px solid;
+  display       : block;
+  margin-bottom : 2.75rem;
+  padding-bottom: 1.25rem;
+}

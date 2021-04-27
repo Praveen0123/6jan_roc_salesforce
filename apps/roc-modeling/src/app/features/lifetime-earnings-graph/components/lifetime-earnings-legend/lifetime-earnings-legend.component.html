@@ -1,0 +1,92 @@
+<section class="flex flex-col">
+  <div class="text-lg font-light">Total Return vs. Cost</div>
+  <div class="flex flex-col mt-3">
+    <div *ngIf="roiSectionsVisibility.showCurrentState"
+         class="flex text-xs text-currentState-primary">
+      <svg viewBox="0 0 22 10"
+           class="w-4 h-3 mt-1 rounded bg-currentState-secondary">
+        <line x1="0"
+              y1="5"
+              x2="22"
+              y2="5"
+              stroke="black"
+              stroke-dasharray="4 2" />
+      </svg>
+      <span class="flex w-48">
+        <span class="flex-shrink-0 mx-1">Lifetime earning with HS Diploma</span>
+        <span class="dot-trail"></span>
+      </span>
+      <span class="ml-2">{{ data.currentStateLifetimeEarningLower | money: 2 }} -
+        {{ data.currentStateLifetimeEarningUpper | money: 2 }}</span>
+    </div>
+    <div *ngIf="roiSectionsVisibility.showGoalState"
+         class="flex mt-2 text-xs text-goalState-primary">
+      <svg viewBox="0 0 22 10"
+           class="w-4 h-3 mt-1 rounded bg-goalState-secondary">
+        <line x1="0"
+              y1="5"
+              x2="22"
+              y2="5"
+              stroke="black"
+              stroke-dasharray="4 2" />
+      </svg>
+      <span class="flex w-48">
+        <span class="flex-shrink-0 mx-1">Lifetime earning with degree</span>
+        <span class="dot-trail"></span>
+      </span>
+      <span class="ml-2">{{ data.goalStateLifetimeEarningLower | money: 2 }} -
+        {{ data.goalStateLifetimeEarningUpper | money: 2 }}</span>
+    </div>
+    <!-- <div *ngIf="roiSectionsVisibility.showLoanAccumulation"
+         class="flex mt-2 text-xs text-loanAccumulation-primary">
+      <svg viewBox="0 0 22 10"
+           class="w-4 h-3 mt-1 rounded bg-loanAccumulation-secondary">
+        <line x1="0"
+              y1="5"
+              x2="22"
+              y2="5"
+              stroke="black"
+              stroke-dasharray="4 2" />
+      </svg>
+      <span class="flex w-48">
+        <span class="flex-shrink-0 mx-1">Investment</span>
+        <span class="dot-trail"></span>
+      </span>
+       <span class="ml-2">{{ data.investmentLower | money: 2 }} -
+        {{ data.investmentUpper | money: 2 }}</span>
+    </div>
+    <div *ngIf="roiSectionsVisibility.showLoanPayoff"
+         class="flex mt-2 text-xs text-loanPayoff-primary">
+      <svg viewBox="0 0 22 10"
+           class="w-4 h-3 mt-1 rounded bg-loanPayoff-secondary">
+        <line x1="0"
+              y1="5"
+              x2="22"
+              y2="5"
+              stroke="black"
+              stroke-dasharray="4 2" />
+      </svg>
+      <span class="flex w-48">
+        <span class="flex-shrink-0 mx-1"
+              style="width: 9.5rem;">Tuition & Fees paid with loans + interests Payment Costs</span>
+        <span class="dot-trail"></span>
+      </span>
+      <span class="ml-2">
+        {{ data.cumulativeNetPricePlusLoanInterest | money: 2 }}</span>
+    </div> -->
+  </div>
+  <div *ngIf="roiSectionsVisibility.showLoanAccumulation"
+       class="flex mt-4 text-sm font-semibold leading-8 text-white whitespace-no-wrap bg-gray-700">
+    <span class="w-4"></span>
+    <span class="w-48 ml-1 dot-trail">Est. Total ROI<span class="inline-block w-1"></span></span>
+    <!-- <span class="ml-2 mr-4"
+      >{{ data.roiLower | percent }} to {{ data.roiUpper | percent }}</span
+    > -->
+    <span>
+      <span class="ml-2 whitespace-nowrap">{{ data.lifeRoiLower | money: 2 }} - {{ data.lifeRoiUpper | money: 2 }}
+      </span>
+      <span class="px-2 m-2 mr-4 leading-tight text-gray-700 bg-white rounded-lg">{{ data.lifeRoiPercentLower / 100 | percent }}-{{ data.lifeRoiPercentUpper / 100 | percent }}
+      </span>
+    </span>
+  </div>
+</section>

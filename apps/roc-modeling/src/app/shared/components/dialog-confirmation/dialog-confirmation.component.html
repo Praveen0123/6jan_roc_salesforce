@@ -1,0 +1,20 @@
+<h3 mat-dialog-title>Please confirm</h3>
+
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+</div>
+
+<div mat-dialog-actions>
+  <roc-button-with-icon [fontSet]="'fas'"
+                        [fontIcon]="'times'"
+                        title='No Thanks'
+                        (onClick)="onNoClick()"></roc-button-with-icon>
+
+
+  <roc-button-with-icon [fontSet]="'fas'"
+                        [fontIcon]="'check'"
+                        title='Yes Please'
+                        matButtonClass="mat-raised-button"
+                        (onClick)="onYesClick()"
+                        cdkFocusInitial></roc-button-with-icon>
+</div>

@@ -1,0 +1,23 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>
+      {{compareModel.totalReturnMinimumAmount}} - {{compareModel.totalReturnMaximumAmount}}
+      ({{compareModel.totalReturnMinimumPercent}} - {{compareModel.totalReturnMaximumPercent}})
+    </div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Est Total Return On Investment</div>
+
+  </section>
+
+</ng-template>

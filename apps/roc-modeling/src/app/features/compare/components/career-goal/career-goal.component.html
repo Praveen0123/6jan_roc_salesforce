@@ -1,0 +1,28 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{compareModel.goalCareerName}}</div>
+    <div>{{compareModel.goalLocationCity}}, {{compareModel.goalLocationState}}</div>
+    <div>{{compareModel.goalRetirementAge}}</div>
+    <div>{{compareModel.goalBeginningAcademicYear}}</div>
+    <div>{{compareModel.goalDegreeName}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Career</div>
+    <div>Location</div>
+    <div>Retirement Age</div>
+    <div>Beginning Academic Year</div>
+    <div>Degree</div>
+
+  </section>
+
+</ng-template>

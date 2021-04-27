@@ -1,0 +1,26 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{compareModel.earningsAverageSalary | currency}}</div>
+    <div>{{compareModel.earningsAverageLivingExpense | currency}}</div>
+    <div>{{compareModel.earningsDispoableIncomeMinimum | currency}} - {{compareModel.earningsDispoableIncomeMaximum | currency}}</div>
+    <div>{{compareModel.earningsYearsToBreakEven}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Average Salary</div>
+    <div>Average Living Expense</div>
+    <div>Est Disposable Income</div>
+    <div>Years to Investment Breakeven</div>
+
+  </section>
+
+</ng-template>

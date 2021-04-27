@@ -1,0 +1,57 @@
+<form [formGroup]="formGroup">
+  <h1 mat-dialog-title>Save Your Model</h1>
+
+  <div mat-dialog-content>
+
+    <mat-form-field class="w-full">
+      <mat-label>Model Name</mat-label>
+      <input matInput
+             formControlName="modelName">
+    </mat-form-field>
+
+  </div>
+
+
+  <div mat-dialog-actions>
+
+    <section class="flex justify-between w-full">
+
+      <div class="flex-1">
+
+        <section class="flex">
+
+          <div class="flex-1">
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'times'"
+                                  title='Cancel'
+                                  (onClick)="onCancelClick()"></roc-button-with-icon>
+          </div>
+
+          <div class="flex-1">
+            <roc-button-with-icon [fontSet]="'fal'"
+                                  [fontIcon]="'bookmark'"
+                                  title='Save and New'
+                                  (onClick)="onSaveAndNewClick()"></roc-button-with-icon>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="flex-auto text-right">
+
+        <roc-button-with-icon [fontSet]="'fas'"
+                              [fontIcon]="'bookmark'"
+                              title='Save and Continue'
+                              (onClick)="onSaveAndContinueClick()"></roc-button-with-icon>
+
+      </div>
+
+    </section>
+
+
+
+
+
+
+  </div>
+</form>

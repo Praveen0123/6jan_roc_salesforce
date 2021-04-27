@@ -1,0 +1,55 @@
+query occupationByOnetCode($onetCode: ID!)
+{
+  occupationByOnetCode(onetCode:$onetCode)
+  {
+    ...occupationFragment
+    _salaryAnalysis
+    {
+      salaryPrecisionType
+      minimumAnnualSalary
+      medianAnnualSalary
+      maximumAnnualSalary
+    }
+    instructionalProgramList
+    {
+      cipCode
+      cipTitle
+    }
+  }
+}
+
+query exchangeAutoCompleteForOccupation($autoCompleteModel: AutoCompleteModelInput!)
+{
+  exchangeAutoCompleteForOccupation( autoCompleteModel:$autoCompleteModel )
+  {
+    ...occupationFragment
+
+    instructionalProgramList
+    {
+      cipCode
+      cipTitle
+    }
+  }
+}
+
+
+fragment occupationFragment on Occupation
+{
+  vpOccupationId
+  onetCode
+  socCode
+  title
+  description
+  typicalEducationLevelGroupId
+  typicalLevelOfEducation
+  typicalWorkExperienceGroupId
+  typicalWorkExperience
+  projectedGrowthRate
+  projectedGrowthRateId
+  projectedJobOpenings2018To2028
+  imageName
+  videoId
+  videoUrl
+  posterUrl
+  autoCompleteModel
+}

@@ -1,0 +1,43 @@
+{
+  "npmScope": "returnon-college",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "ZDUyNmUxYzctMjQ4Mi00ZWRiLTkxY2MtYzkzY2ZlY2Y1ODk3fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "roc-modeling": {
+      "tags": []
+    },
+    "roc-modeling-e2e": {
+      "tags": [],
+      "implicitDependencies": ["roc-modeling"]
+    },
+    "roc-modeling-gateway": {
+      "tags": []
+    },
+    "slider-circle": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import 'common';
+
+:host {
+  background-color: mat-color($primary, 500);
+  display         : block;
+}
+
+.mat-tab-link {
+  color         : mat-color($primary, 2);
+  font-size     : rem-calc(14);
+  text-transform: uppercase;
+
+  &.active {
+    border-bottom: solid rem-calc(6) mat-color($primary, 2);
+    opacity      : 1;
+  }
+}

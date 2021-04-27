@@ -1,0 +1,28 @@
+<ng-container *ngIf="compareModel; else rowTitles">
+
+  <section class="flex flex-col data-container">
+
+    <div>{{compareModel.educationNetPrice | currency}}</div>
+    <div>{{compareModel.educationFederalLoanAmount | currency}}</div>
+    <div>{{compareModel.educationPrivateLoanAmount | currency}}</div>
+    <div>{{compareModel.educationOutOfPocketCost | currency}}</div>
+    <div>{{compareModel.educationLoanDefaultRate | currency}}</div>
+
+  </section>
+
+</ng-container>
+
+
+<ng-template #rowTitles>
+
+  <section class="flex flex-col titles-container">
+
+    <div>Education Cost (Net Price)</div>
+    <div>Federal Loan Amount</div>
+    <div>Private Loan Amount</div>
+    <div>Out Of Pocket Cost</div>
+    <div>Loan Default Rate</div>
+
+  </section>
+
+</ng-template>

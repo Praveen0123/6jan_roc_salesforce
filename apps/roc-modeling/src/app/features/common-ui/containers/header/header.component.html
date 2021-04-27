@@ -1,0 +1,77 @@
+<ng-container *ngIf="{
+    compareCount: compareCount$ | async,
+    roiModelCount: roiModelCount$ | async
+  } as data">
+
+
+  <header>
+    <section class="flex">
+
+      <!-- LOGO -->
+      <div class="flex-1 flex-shrink">
+
+        <section class="flex items-center h-16">
+
+          <div class="flex-none">
+            <a routerLink="/">
+              <img class="block w-auto h-12"
+                   src="/assets/images/logos/roc_logo_white.svg"
+                   alt="Return On College" />
+            </a>
+          </div>
+
+          <div class="flex-none text-xs font-bold text-white uppercase">
+            Roi Modeling Tool
+          </div>
+
+        </section>
+
+
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="self-end flex-grow">
+
+        <nav mat-tab-nav-bar
+             mat-align-tabs="center">
+
+          <a mat-tab-link
+             routerLink="/modeling"
+             routerLinkActive="active"
+             class="h-16 link"
+             (click)="closeOffCanvasMenu()">
+            Return On Investment
+          </a>
+
+          <a mat-tab-link
+             routerLink="/compare-models"
+             routerLinkActive="active"
+             class="h-16 link"
+             (click)="closeOffCanvasMenu()">
+            <span [matBadge]="data.compareCount"
+                  matBadgeOverlap="false">Compare Models</span>
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <!-- BOOKMARKS -->
+      <div class="self-end flex-shrink mr-10">
+
+        <roc-button-with-icon [fontSet]="'fas'"
+                              [fontIcon]="'bookmark'"
+                              class="saved-button"
+                              (onClick)="onShowSaved()">
+
+          <span [matBadge]="data.roiModelCount"
+                matBadgeOverlap="false">Models</span>
+
+        </roc-button-with-icon>
+      </div>
+
+    </section>
+  </header>
+
+</ng-container>

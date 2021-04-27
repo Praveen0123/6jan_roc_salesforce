@@ -1,0 +1,46 @@
+query locationByZipCode($zipCode: ID!)
+{
+  locationByZipCode( zipCode:$zipCode )
+  {
+    ...locationFragment
+  }
+}
+
+query exchangeAutoCompleteForLocation($autoCompleteModel: AutoCompleteModelInput!)
+{
+  exchangeAutoCompleteForLocation( autoCompleteModel:$autoCompleteModel )
+  {
+    ...locationFragment
+  }
+}
+
+fragment locationFragment on Location
+{
+  zipCode
+  marketArea
+  marketAreaCityName
+  marketAreaStateAbbreviation
+  cityName
+  countyFIPSCode
+  countyName
+  stateAbbreviation
+  stateName
+  regionId
+  regionName
+  medianAnnualSalary
+  medianSalaryPrecisionSource
+  incomeBandId
+  incomeBandName
+  costOfLivingList
+  {
+		expenseCategoryGroupId
+    expenseCategoryGroupName
+    expenseCategoryId
+    expenseCategoryName
+    averageAnnualExpense
+    averageMonthlyExpense
+  }
+  latitude
+  longitude
+  autoCompleteModel
+}

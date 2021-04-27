@@ -1,0 +1,10 @@
+@import 'common';
+
+:host {
+  display: block;
+}
+
+.icon-owl-compare {
+  height: rem-calc(150);
+  width : rem-calc(150);
+}

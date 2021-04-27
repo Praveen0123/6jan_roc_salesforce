@@ -1,0 +1,42 @@
+<ng-container *ngIf="{
+    isAuthenticated: isAuthenticated$ | async,
+    hasCompletedOnboarding: hasCompletedOnboarding$ | async,
+    isOffCanvasOpen: isOffCanvasOpen$ | async
+  } as data">
+
+  <ng-container *ngIf="(data.isAuthenticated && data.hasCompletedOnboarding); else notAuthenticated">
+
+
+    <roc-off-canvas-saved-models [class.active]="data.isOffCanvasOpen"></roc-off-canvas-saved-models>
+
+
+    <section class="antialiased text-gray-900 box">
+
+      <header class="row header">
+        <roc-header [isOffCanvasOpen]="data.isOffCanvasOpen"
+                    (onShowSaved)="onShowSaved($event)"></roc-header>
+      </header>
+
+
+      <section class="row content">
+        <router-outlet></router-outlet>
+      </section>
+
+
+
+      <footer class="border-t bg-gray-50 row footer">
+        <roc-footer class="pt-8"></roc-footer>
+      </footer>
+
+    </section>
+
+
+
+  </ng-container>
+
+</ng-container>
+
+
+<ng-template #notAuthenticated>
+  <router-outlet></router-outlet>
+</ng-template>

@@ -1,0 +1,38 @@
+scalar GraphQLJSON
+
+type RoiModel @key(fields: "roiAggregateId")
+{
+  tenantId: ID!
+  userId: ID!
+  roiAggregateId: ID!
+  model: GraphQLJSON!
+}
+
+extend type Query
+{
+  roiModel(tenantId: ID!, userId: ID!): RoiModel
+}
+
+input RoiModelInput
+{
+  tenantId: ID!
+  userId: ID!
+  roiAggregateId: ID!
+  model: GraphQLJSON!
+}
+
+input ShareRoiModelInput
+{
+  tenantId: ID!
+  roiAggregateId: ID!
+  firstName: String!
+  lastName: String!
+  emailAddress: String!
+  userType: UserType!
+}
+
+extend type Mutation
+{
+  saveRoiModel(roiModelInput: RoiModelInput): RoiModel
+  shareRoiModel(shareRoiModelInput: ShareRoiModelInput): RoiModel
+}

@@ -1,0 +1,264 @@
+<div id="roc-chart-popover">
+  <div id="popover-header"
+       class="flex justify-between px-6 py-2 text-xs font-bold text-white bg-gray-700">
+    <div>
+      Est. Monthly Income and Expenses
+      {{ data.rocChartPopoverData.time | number }} Years from Now
+    </div>
+    <button (click)="closeDialog()"
+            class="w-5">
+      <fa-icon [icon]="closeIcon"></fa-icon>
+    </button>
+  </div>
+  <table class="table-auto">
+    <tr class="text-xs font-bold text-white">
+      <th class="px-6 py-2 bg-currentState-primary">
+        <span class="sr-only">Entry Name</span>
+      </th>
+      <td class="px-6 py-2 bg-currentState-primary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showCurrentState">
+        {{ data.rocChartPopoverData?.currentStateOccupationTitle || 'Current Occupation' }}
+      </td>
+      <td class="px-6 py-2 bg-goalState-primary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showGoalState">
+        {{ data.rocChartPopoverData?.goalStateOccupationTitle || 'Goal Occupation' }}
+      </td>
+      <td class="px-6 py-2 bg-alumniState-primary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showAlumniData">
+        Alumni Earnings
+      </td>
+    </tr>
+    <tr class="h-12 font-semibold border-b border-gray-500 border-dotted">
+      <th class="px-6 py-2 text-sm font-normal bg-white">Avg Monthly Salary</th>
+      <td class="px-6 py-2 bg-currentState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showCurrentState">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlySalary.currentStateMedian
+              ? (data.rocChartPopoverData.monthlySalary.currentStateMedian
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlySalary.currentStateLower
+              ? (data.rocChartPopoverData.monthlySalary.currentStateLower
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+          -
+          {{
+            data.rocChartPopoverData.monthlySalary.currentStateUpper
+              ? (data.rocChartPopoverData.monthlySalary.currentStateUpper
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+      </td>
+      <td class="px-6 py-2 bg-goalState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showGoalState">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlySalary.goalStateMedian
+              ? (data.rocChartPopoverData.monthlySalary.goalStateMedian
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlySalary.goalStateLower
+              ? (data.rocChartPopoverData.monthlySalary.goalStateLower
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+          -
+          {{
+            data.rocChartPopoverData.monthlySalary.goalStateUpper
+              ? (data.rocChartPopoverData.monthlySalary.goalStateUpper
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+      </td>
+      <td class="px-6 py-2 bg-alumniState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showAlumniData">
+        {{
+          data.rocChartPopoverData.monthlySalary.alumniStateValue
+            ? (data.rocChartPopoverData.monthlySalary.alumniStateValue
+              | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+    </tr>
+    <tr class="h-12 font-semibold border-b border-gray-500 border-dotted">
+      <th class="px-6 py-2 text-sm font-normal bg-white">
+        Avg Monthly Living Expense
+      </th>
+      <td class="px-6 py-2 bg-currentState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showCurrentState">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.currentStateMedian
+              ? (data.rocChartPopoverData.monthlyLivingExpense
+                  .currentStateMedian | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.currentStateCaption
+              ? data.rocChartPopoverData.monthlyLivingExpense
+                  .currentStateCaption
+              : 'N/A'
+          }}
+        </div>
+      </td>
+      <td class="px-6 py-2 bg-goalState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showGoalState">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.goalStateMedian
+              ? (data.rocChartPopoverData.monthlyLivingExpense.goalStateMedian
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.goalStateCaption
+              ? data.rocChartPopoverData.monthlyLivingExpense.goalStateCaption
+              : 'N/A'
+          }}
+        </div>
+      </td>
+      <td class="px-6 py-2 bg-alumniState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showAlumniData">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.alumniStateValue
+              ? (data.rocChartPopoverData.monthlyLivingExpense.alumniStateValue
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlyLivingExpense.alumniStateCaption
+              ? data.rocChartPopoverData.monthlyLivingExpense.alumniStateCaption
+              : 'N/A'
+          }}
+        </div>
+      </td>
+    </tr>
+    <tr class="h-12 font-semibold border-b border-gray-500 border-dotted">
+      <th class="px-6 py-2 text-sm font-normal bg-white">
+        Est. Monthly Student Loan Payment
+      </th>
+      <td class="px-6 py-2 bg-currentState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showCurrentState">
+        {{
+          data.rocChartPopoverData.monthlyLoanPayment.currentStateMedian != null
+            ? (data.rocChartPopoverData.monthlyLoanPayment.currentStateMedian
+              | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+      <td class="px-6 py-2 bg-goalState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showGoalState"
+          [ngClass]="{
+          'bg-loanPayoff-secondary':
+            data.rocChartPopoverData.monthlyLoanPayment.goalStateMedian > 0
+        }">
+        <div>
+          {{
+            data.rocChartPopoverData.monthlyLoanPayment.goalStateMedian != null
+              ? (data.rocChartPopoverData.monthlyLoanPayment.goalStateMedian
+                | currency: 'USD':'symbol':'1.0-0')
+              : 'N/A'
+          }}
+        </div>
+        <div class="font-normal leading-none text-2xs">
+          {{
+            data.rocChartPopoverData.monthlyLoanPayment.goalStateCaption
+              ? data.rocChartPopoverData.monthlyLoanPayment.goalStateCaption
+              : 'N/A'
+          }}
+        </div>
+      </td>
+      <td class="px-6 py-2 bg-alumniState-secondary"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showAlumniData">
+        {{
+          data.rocChartPopoverData.monthlyLoanPayment.alumniStateValue != null
+            ? (data.rocChartPopoverData.monthlyLoanPayment.alumniStateValue
+              | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+    </tr>
+    <tr class="h-12 font-semibold">
+      <th class="px-6 py-2 text-sm font-normal bg-white">
+        Est. Monthly Disposable Income
+      </th>
+      <td class="px-6 py-2 bg-currentState-secondary"
+          [ngClass]="{
+          'text-loanPayoff-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome
+              .currentStateMedian < 0,
+          'text-goalState-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome
+              .currentStateMedian != null &&
+            data.rocChartPopoverData.monthlyDisposableIncome
+              .currentStateMedian >= 0
+        }"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showCurrentState">
+        {{
+          data.rocChartPopoverData.monthlyDisposableIncome.currentStateMedian
+            ? (data.rocChartPopoverData.monthlyDisposableIncome
+                .currentStateMedian | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+      <td class="px-6 py-2 bg-goalState-secondary"
+          [ngClass]="{
+          'text-loanPayoff-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome.goalStateMedian <
+            0,
+          'text-goalState-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome.goalStateMedian !=
+              null &&
+            data.rocChartPopoverData.monthlyDisposableIncome.goalStateMedian >=
+              0
+        }"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showGoalState">
+        {{
+          data.rocChartPopoverData.monthlyDisposableIncome.goalStateMedian
+            ? (data.rocChartPopoverData.monthlyDisposableIncome.goalStateMedian
+              | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+      <td class="px-6 py-2 bg-alumniState-secondary"
+          [ngClass]="{
+          'text-loanPayoff-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome.alumniStateValue <
+            0,
+          'text-goalState-primary':
+            data.rocChartPopoverData.monthlyDisposableIncome.alumniStateValue !=
+              null &&
+            data.rocChartPopoverData.monthlyDisposableIncome.alumniStateValue >=
+              0
+        }"
+          *ngIf="data.rocChartPopoverData.rocPlotsVisibility.showAlumniData">
+        {{ data.rocChartPopoverData.monthlyDisposableIncome.alumniStateValue }}
+        {{
+          data.rocChartPopoverData.monthlyDisposableIncome.alumniStateValue
+            ? (data.rocChartPopoverData.monthlyDisposableIncome
+                .alumniStateValue | currency: 'USD':'symbol':'1.0-0')
+            : 'N/A'
+        }}
+      </td>
+    </tr>
+  </table>
+</div>

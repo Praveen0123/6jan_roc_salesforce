@@ -1,0 +1,102 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="onFormSubmit()">
+
+  <section class="flex flex-col w-full">
+
+    <!-- LOCATION  -->
+    <div class="my-1">
+      <vp-auto-complete formControlName="location"
+                        [touched]="formGroup.get('location').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Location"
+                        [label]="'Location'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'zip, or city, state'"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+    </div>
+
+
+    <!-- OCCUPATION -->
+    <div class="mt-1">
+
+      <vp-auto-complete formControlName="occupation"
+                        [touched]="formGroup.get('occupation').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Occupation"
+                        [label]="'Career Goal'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'Enter Keywords'"
+                        [isRequired]="true"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+
+    </div>
+
+
+    <!-- DEGREE LEVEL -->
+    <div class="my-1">
+
+      <mat-form-field class="w-full">
+        <mat-label>Degree level</mat-label>
+        <mat-select placeholder="choose a degree"
+                    formControlName="degreeLevel"
+                    [compareWith]="compareEducationLevelFunction"
+                    required>
+
+          <mat-option *ngFor="let item of availableEducationLevel; let i=index;"
+                      [value]="item">
+            {{availableEducationLevel[i].displayName}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- GOAL DEGREE PROGRAM -->
+    <div class="mt-1"
+         *ngIf="!instructionalProgramList || instructionalProgramList.length === 0">
+
+      <vp-auto-complete formControlName="degreeProgram"
+                        [touched]="formGroup.get('degreeProgram').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Major"
+                        [label]="'Degree Program'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'choose a program'"
+                        [isRequired]="true"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+    </div>
+    <div class="mt-1"
+         *ngIf="instructionalProgramList && instructionalProgramList.length > 0">
+
+
+      <mat-form-field class="w-full">
+        <mat-label>Degree Program</mat-label>
+        <mat-select placeholder="choose a degree program"
+                    formControlName="degreeProgram"
+                    [compareWith]="compareDegreeProgramFunction"
+                    required>
+
+          <mat-option *ngFor="let item of instructionalProgramList"
+                      [value]="item">
+            {{item.name}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- RETIREMENT AGE  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Retirement Age"
+                  formControlName="retirementAge"
+                  [min]="retirementAgeMinimum"
+                  [max]="retirementAgeMaximum"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+  </section>
+
+</form>

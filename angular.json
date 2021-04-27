@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "projects": {
+    "roc-modeling": {
+      "root": "apps/roc-modeling",
+      "sourceRoot": "apps/roc-modeling/src",
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "displayBlock": true,
+          "changeDetection": "OnPush"
+        }
+      },
+      "prefix": "roc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "@aws-crypto/sha256-browser",
+              "@aws-crypto/sha256-js",
+              "@aws-crypto/crc32",
+              "@vantage-point/ddd-core",
+              "axios",
+              "buffer",
+              "crypto-js/enc-base64",
+              "crypto-js/sha256",
+              "crypto-js/hmac-sha256",
+              "crypto-js/lib-typedarrays",
+              "fast-xml-parser",
+              "graphql-tag",
+              "isomorphic-unfetch",
+              "js-cookie",
+              "lodash",
+              "lodash/isEqual",
+              "lodash/isEmpty",
+              "lodash/get",
+              "ulid",
+              "url",
+              "uuid",
+              "zen-observable"
+            ],
+            "outputPath": "dist/apps/roc-modeling",
+            "index": "apps/roc-modeling/src/index.html",
+            "main": "apps/roc-modeling/src/main.ts",
+            "polyfills": "apps/roc-modeling/src/polyfills.ts",
+            "tsConfig": "apps/roc-modeling/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/roc-modeling/src/favicon.ico",
+              "apps/roc-modeling/src/Web.config",
+              "apps/roc-modeling/src/assets"
+            ],
+            "styles": [
+              "apps/roc-modeling/src/scss/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/roc-modeling/src/app/features/compare/components/_scss",
+                "apps/roc-modeling/src/scss/common"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/roc-modeling/src/environments/environment.ts",
+                  "with": "apps/roc-modeling/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "12mb"
+                },
+                {
+                  "type": "anyScript",
+                  "maximumWarning": "5mb",
+                  "maximumError": "6mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "roc-modeling:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "roc-modeling:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "roc-modeling:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/roc-modeling/tsconfig.app.json",
+              "apps/roc-modeling/tsconfig.spec.json",
+              "apps/roc-modeling/tsconfig.editor.json",
+              "apps/roc-modeling/tsconfig.server.json",
+              "apps/roc-modeling/tsconfig.serverless.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/roc-modeling/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/roc-modeling/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/apps/roc-modeling"
+          ]
+        },
+        "tailwind": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx postcss apps/roc-modeling/src/scss/vendors/tailwindcss/tailwind.css -o apps/roc-modeling/src/scss/vendors/tailwindcss/bin/tailwind.css --config apps/roc-modeling/src/scss/vendors/tailwindcss/postcss.config.js --env={args.env}"
+          }
+        },
+        "graphql-codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx graphql-codegen --config apps/roc-modeling/codegen.yml"
+          }
+        },
+        "prebuild": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx tailwind roc-modeling",
+              "nx graphql-codegen roc-modeling"
+            ],
+            "parallel": true
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx nx prebuild roc-modeling --args='--env=production'",
+              "npx nx run roc-modeling:build:production",
+              "(cd apps/roc-modeling/cdk/ && npx cdk deploy --require-approval never)"
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "roc-modeling-e2e": {
+      "root": "apps/roc-modeling-e2e",
+      "sourceRoot": "apps/roc-modeling-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/roc-modeling-e2e/cypress.json",
+            "tsConfig": "apps/roc-modeling-e2e/tsconfig.e2e.json",
+            "devServerTarget": "roc-modeling:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "roc-modeling:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/roc-modeling-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/roc-modeling-e2e/**/*"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "echo \"deploy roc-modeling-e2e\""
+              }
+            ]
+          }
+        }
+      }
+    },
+    "roc-modeling-gateway": {
+      "root": "apps/roc-modeling-gateway",
+      "sourceRoot": "apps/roc-modeling-gateway/src",
+      "projectType": "application",
+      "prefix": "roc-modeling-gateway",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/roc-modeling-gateway",
+            "main": "apps/roc-modeling-gateway/src/main.ts",
+            "tsConfig": "apps/roc-modeling-gateway/tsconfig.app.json",
+            "assets": [],
+            "webpackConfig": "apps/roc-modeling-gateway/webpack-build.config.js"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/roc-modeling-gateway/src/environments/environment.ts",
+                  "with": "apps/roc-modeling-gateway/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "waitUntilTargets": [
+              "roc-modeling-gateway:graphql-codegen"
+            ],
+            "buildTarget": "roc-modeling-gateway:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/roc-modeling-gateway/tsconfig.app.json",
+              "apps/roc-modeling-gateway/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/roc-modeling-gateway/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/roc-modeling-gateway/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/apps/roc-modeling-gateway"
+          ]
+        },
+        "graphql-codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "npx graphql-codegen --config apps/roc-modeling-gateway/codegen.yml"
+            ]
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "echo \"deploy roc-modeling-gateway\""
+              }
+            ]
+          }
+        }
+      }
+    },
+    "slider-circle": {
+      "projectType": "library",
+      "root": "libs/slider-circle",
+      "sourceRoot": "libs/slider-circle/src",
+      "prefix": "roc-lib",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/slider-circle/tsconfig.lib.json",
+              "libs/slider-circle/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/slider-circle/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/slider-circle/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/libs/slider-circle"
+          ]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {
+      "style": "scss",
+      "displayBlock": true,
+      "changeDetection": "OnPush"
+    }
+  },
+  "defaultProject": "roc-modeling"
+}

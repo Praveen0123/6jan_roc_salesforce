@@ -1,0 +1,91 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="onFormSubmit()">
+
+  <section class="flex flex-col w-full">
+
+    <!-- INSTITUTION -->
+    <div class="mt-1">
+
+      <vp-auto-complete formControlName="institution"
+                        [touched]="formGroup.get('institution').touched"
+                        [autoCompleteType]="autoCompleteTypeEnum.Institution"
+                        [label]="'School'"
+                        [shouldLabelFloat]="false"
+                        [placeholder]="'enter a school name'"
+                        [isRequired]="true"
+                        [formFieldAppearance]="'standard'"></vp-auto-complete>
+    </div>
+
+
+    <!-- START YEAR -->
+    <div class="my-1">
+
+      <mat-form-field class="w-full">
+        <mat-label>When do you plan to start school?</mat-label>
+        <mat-select placeholder="select start year"
+                    formControlName="startYear"
+                    required>
+
+          <mat-option *ngFor="let year of startYearList"
+                      [value]="year">
+            {{year}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- FAMILY INCOME  -->
+    <div class="my-1">
+
+      <mat-form-field class="w-full">
+        <mat-label>Family Income (Optional)</mat-label>
+        <mat-select placeholder="select family income"
+                    formControlName="incomeRange"
+                    [compareWith]="compareIncomeRangeFunction"
+                    required>
+
+          <mat-option *ngFor="let item of incomeRangeEnum"
+                      [value]="item">
+            {{item.displayName}}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- PART TIME/FULL TIME  -->
+    <div class="mt-6 mb-1">
+
+      <mat-label>
+        <div>Are you planning to attend school part-time or full-time?</div>
+      </mat-label>
+
+      <mat-radio-group formControlName="isFulltime"
+                       aria-label="part or full time student" color="primary">
+        <mat-radio-button [value]="false">Part-Time</mat-radio-button>
+        <mat-radio-button [value]="true">Full-Time</mat-radio-button>
+      </mat-radio-group>
+
+
+    </div>
+
+
+    <!-- YEARS TO COMPLETE  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Est. years to complete degree - {{defaultYearsToCompleteMinimum}} - {{defaultYearsToCompleteMaximum}}"
+                  formControlName="yearsToCompleteDegree"
+                  [min]="defaultYearsToCompleteMinimum"
+                  [max]="defaultYearsToCompleteMaximum"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+  </section>
+
+</form>

@@ -1,0 +1,32 @@
+<section class="flex align-middle">
+
+  <div class="flex-1 mx-6">
+
+
+    <section class="flex flex-col">
+
+      <div class="mb-6 ">
+        {{data.message}}
+      </div>
+
+      <div *ngIf="clipboardData">
+        <roc-button-with-icon title="Copy to clipboard"
+                              class="notification"
+                              [fontSet]="'fal'"
+                              [fontIcon]="'copy'"
+                              [cdkCopyToClipboard]="clipboardData"
+                              (onClick)="onDismiss()"></roc-button-with-icon>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="flex-shrink text-right">
+    <roc-button-with-icon [fontSet]="'fas'"
+                          class="notification"
+                          [fontIcon]="'times'"
+                          (onClick)="onDismiss()"></roc-button-with-icon>
+  </div>
+
+</section>

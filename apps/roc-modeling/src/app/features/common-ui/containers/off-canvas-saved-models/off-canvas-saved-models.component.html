@@ -1,0 +1,109 @@
+<ng-container *ngIf="{
+    roiModelList: roiModelList$ | async,
+    compareIdList: compareIdList$ | async,
+    selectedRoiModelId: selectedRoiModelId$ | async
+  } as data">
+
+  <ng-container *ngIf="(data.roiModelList && data.roiModelList.length > 0); else noSavedModels">
+
+    <section class="flex flex-col">
+
+      <div class="text-right">
+
+        <roc-button-with-icon [fontSet]="'fal'"
+                              [fontIcon]="'copy'"
+                              title="Copy Aggregate"
+                              (onClick)="onCopyRoiAggregateModel()"></roc-button-with-icon>
+
+      </div>
+
+      <!-- HEADER -->
+      <div class="border-b">
+
+        <section class="flex align-middle">
+
+          <div class="flex-1">
+            <span class="pl-6 text-base font-bold text-black">Saved Models</span>
+          </div>
+
+          <div class="flex-shrink text-right">
+
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'plus'"
+                                  title="Add Model"
+                                  (onClick)="onAddNewModel()"></roc-button-with-icon>
+
+          </div>
+
+          <div class="flex-shrink text-right">
+
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'arrow-right'"
+                                  (onClick)="onClose()"></roc-button-with-icon>
+
+          </div>
+
+        </section>
+
+      </div>
+
+
+
+      <!-- MODELS -->
+      <div *ngFor="let item of data.roiModelList"
+           class="border-l-10"
+           [ngClass]="(item.roiModelId === data.selectedRoiModelId) ? 'border-red-700' : 'border-white'">
+
+        <roc-saved-model [roiModelDto]="item"
+                         [compareIdList]="data.compareIdList"
+                         (onMakeActive)="onMakeActive($event)"
+                         (onCompare)="onCompare($event, item)"
+                         (onDelete)="onDelete($event)"
+                         class="py-3 pl-3 border-b"></roc-saved-model>
+
+      </div>
+
+    </section>
+
+  </ng-container>
+
+
+
+  <ng-template #noSavedModels>
+
+    <section class="flex flex-col titles-container">
+
+      <div>
+
+        <section class="flex align-middle">
+
+          <div class="flex-1">
+            <span class="text-sm font-bold text-black">No Saved Models</span>
+          </div>
+
+          <div class="flex-1 text-right">
+
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'times'"
+                                  (onClick)="onClose()"></roc-button-with-icon>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <div>
+        <span class="text-xs text-gray-400">Once you have saved a model, you'll see them here</span>
+      </div>
+
+      <div class="flex-1 text-center">
+        <roc-owl-icon class="mt-7"></roc-owl-icon>
+      </div>
+
+    </section>
+
+  </ng-template>
+
+
+</ng-container>

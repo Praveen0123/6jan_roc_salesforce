@@ -1,0 +1,131 @@
+<ng-container *ngIf="{
+    roiModelDto: roiModelDto$ | async
+  } as data">
+
+  <form [formGroup]="formGroup">
+
+    <section class="flex flex-col text-center">
+
+      <div class="my-10">
+        <roc-owl-icon></roc-owl-icon>
+      </div>
+
+      <div class="my-10">
+
+        <div class="mb-2 text-2xl font-bold text-black">Share {{data.roiModelDto.name}}?</div>
+      </div>
+
+
+      <!-- FIRST NAME -->
+      <div>
+
+        <mat-form-field appearance="standard"
+                        class="w-full">
+
+          <mat-label>First Name</mat-label>
+
+          <input matInput
+                 placeholder="john"
+                 formControlName="firstName"
+                 autocomplete="none"
+                 autocomplete="chrome-off"
+                 required>
+
+          <mat-error *ngIf="formGroup.controls.firstName.hasError('required')
+                          || (formGroup.controls.firstName.invalid && formGroup.controls.firstName.touched)">
+            Please enter your first name.
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+
+
+      <!-- LAST NAME -->
+      <div>
+
+        <mat-form-field appearance="standard"
+                        class="w-full">
+
+          <mat-label>Last Name</mat-label>
+
+          <input matInput
+                 placeholder="doe"
+                 formControlName="lastName"
+                 autocomplete="none"
+                 autocomplete="chrome-off"
+                 required>
+
+          <mat-error *ngIf="formGroup.controls.lastName.hasError('required')
+                          || (formGroup.controls.lastName.invalid && formGroup.controls.lastName.touched)">
+            Please enter your last name.
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+
+
+      <!-- EMAIL ADDRESS -->
+      <div>
+
+        <mat-form-field appearance="standard"
+                        class="w-full">
+
+          <mat-label>Email Address</mat-label>
+
+          <input matInput
+                 placeholder="john.doe@email.com"
+                 formControlName="emailAddress"
+                 autocomplete="none"
+                 autocomplete="chrome-off"
+                 required>
+
+          <mat-error *ngIf="formGroup.controls.emailAddress.hasError('required')
+                          || (formGroup.controls.emailAddress.invalid && formGroup.controls.emailAddress.touched)">
+            Please enter a valid email address.
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+
+
+      <!-- CALL-TO-ACTION -->
+      <div>
+
+        <section class="flex justify-around">
+
+          <div class="items-center">
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'arrow-left'"
+                                  title='Cancel'
+                                  (onClick)="onCancelClick()"></roc-button-with-icon>
+          </div>
+
+          <div class="items-center">
+            <roc-button-with-icon [fontSet]="'fas'"
+                                  [fontIcon]="'arrow-right'"
+                                  title='Next'
+                                  (onClick)="onSaveClick()"></roc-button-with-icon>
+          </div>
+
+        </section>
+
+      </div>
+
+
+    </section>
+
+  </form>
+</ng-container>
+
+<!--
+<p>
+  Form is: {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<pre>
+{{formGroup.value | json}}
+</pre>
+-->

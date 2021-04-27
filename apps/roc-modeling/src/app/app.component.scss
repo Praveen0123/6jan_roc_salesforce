@@ -1,0 +1,23 @@
+// router-outlet+ ::ng-deep * {
+//   // 4 rem is header height
+//   height: calc(100% - 4rem);
+// }
+
+
+.box {
+  display  : flex;
+  flex-flow: column;
+  height   : 100%;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+}
+
+.box .row.footer {
+  flex: 0 1 80px;
+}

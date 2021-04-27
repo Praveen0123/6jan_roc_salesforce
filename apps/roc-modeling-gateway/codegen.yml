@@ -1,0 +1,16 @@
+overwrite: true
+schema: ./apps/roc-modeling-gateway/src/app/**/*.graphql
+documents: null
+generates:
+  ./apps/roc-modeling-gateway/src/app/generated/models.ts:
+    config:
+      wrapFieldDefinitions: true
+      federation: true
+      noSchemaStitching: true
+      useTypeImports: true
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+  ./apps/roc-modeling-gateway/graphql.schema.json:
+    plugins:
+      - "introspection"

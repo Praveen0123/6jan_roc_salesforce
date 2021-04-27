@@ -1,0 +1,60 @@
+{
+  "files.exclude": {
+    "amplify/.config": true,
+    "amplify/**/*-parameters.json": true,
+    "amplify/**/amplify.state": true,
+    "amplify/**/transform.conf.json": true,
+    "amplify/#current-cloud-backend": true,
+    "amplify/backend/amplify-meta.json": true,
+    "amplify/backend/awscloudformation": true
+  },
+  "editor.autoIndent": "brackets",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wrappingIndent": "indent",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "html.format.endWithNewline": true,
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "html.format.wrapLineLength": 0,
+  "javascript.format.enable": true,
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.format.enable": true,
+  "typescript.format.insertSpaceAfterConstructor": false,
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescriptHero.imports.organizeOnSave": true,
+  "typescriptHero.imports.grouping": [
+    "Plains",
+    "Modules",
+    "Workspace"
+  ],
+  "typescriptHero.imports.multiLineWrapThreshold": 250,
+  "typescriptHero.imports.organizeSortsByFirstSpecifier": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "cSpell.words": [
+    "e",
+    "oc",
+    "yeozhctha"
+  ]
+}

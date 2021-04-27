@@ -1,0 +1,176 @@
+<ng-container *ngIf="{
+    compareModelList: compareModelList$ | async
+  } as data">
+
+
+  <ng-container *ngIf="(data.compareModelList && data.compareModelList.length > 0); else noSavedModels">
+
+    <section class="container">
+
+      <!-- COMPARE MODELS -->
+      <roc-compare-section [compareTemplate]="modelGraphComparison">
+
+        <roc-model-graph></roc-model-graph>
+
+      </roc-compare-section>
+
+
+
+      <!-- CAREER GOAL -->
+      <roc-compare-section title="Goal"
+                           [compareTemplate]="careerGoalComparison">
+
+        <roc-career-goal></roc-career-goal>
+
+      </roc-compare-section>
+
+
+
+      <!-- INSTITUTION -->
+      <roc-compare-section title="Institution Information"
+                           [compareTemplate]="institutionComparison">
+
+        <roc-institution></roc-institution>
+
+      </roc-compare-section>
+
+
+
+      <!-- TEST SCORES & ACCEPTANCE -->
+      <roc-compare-section title="Test Scores & Acceptance"
+                           [compareTemplate]="testScoresComparison">
+
+        <roc-test-scores></roc-test-scores>
+
+      </roc-compare-section>
+
+
+
+      <!-- EDUCATION COSTS -->
+      <roc-compare-section title="Education Costs"
+                           [compareTemplate]="educationCostsComparison">
+
+        <roc-education-costs></roc-education-costs>
+
+      </roc-compare-section>
+
+
+
+      <!-- FUTURE EARNINGS -->
+      <roc-compare-section title="Future Earnings (Monthly)"
+                           [compareTemplate]="futureEarningsComparison">
+
+        <roc-future-earnings></roc-future-earnings>
+
+      </roc-compare-section>
+
+
+
+      <!-- RETURN ON INVESTMENT -->
+      <roc-compare-section title="Future Earnings (Monthly)"
+                           [compareTemplate]="returnOnInvestmentComparison">
+
+        <roc-return-on-investment></roc-return-on-investment>
+
+      </roc-compare-section>
+
+
+    </section>
+
+
+    <!-- COMPARE MODELS -->
+    <ng-template #modelGraphComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-model-graph [compareModel]="item"></roc-model-graph>
+      </div>
+    </ng-template>
+
+
+    <!-- CAREER GOAL -->
+    <ng-template #careerGoalComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-career-goal [compareModel]="item"></roc-career-goal>
+      </div>
+    </ng-template>
+
+
+    <!-- INSTITUTION -->
+    <ng-template #institutionComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-institution [compareModel]="item"></roc-institution>
+      </div>
+    </ng-template>
+
+
+    <!-- TEST SCORES & ACCEPTANCE -->
+    <ng-template #testScoresComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-test-scores [compareModel]="item"></roc-test-scores>
+      </div>
+    </ng-template>
+
+
+    <!-- EDUCATION COSTS -->
+    <ng-template #educationCostsComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-education-costs [compareModel]="item"></roc-education-costs>
+      </div>
+    </ng-template>
+
+
+    <!-- FUTURE EARNINGS -->
+    <ng-template #futureEarningsComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-future-earnings [compareModel]="item"></roc-future-earnings>
+      </div>
+    </ng-template>
+
+
+    <!-- RETURN ON INVESTMENT -->
+    <ng-template #returnOnInvestmentComparison>
+      <div class="flex-1"
+           *ngFor="let item of data.compareModelList">
+        <roc-return-on-investment [compareModel]="item"></roc-return-on-investment>
+      </div>
+    </ng-template>
+
+  </ng-container>
+
+</ng-container>
+
+
+<ng-template #noSavedModels>
+
+  <section class="flex flex-col text-center titles-container mt-28">
+
+    <div>
+      <span class="text-lg font-bold text-black">No Models to Compare</span>
+    </div>
+
+    <div>
+      <span class="text-xs text-gray-400">Once you have selected a model(s) to compare, you'll see them here</span>
+    </div>
+
+    <div class="flex-1 text-center">
+      <roc-owl-icon class="mt-7"></roc-owl-icon>
+    </div>
+
+
+    <div>
+
+      <roc-button-with-icon [fontSet]="'fal'"
+                            [fontIcon]="'bookmark'"
+                            title="View Saved Models"
+                            (onClick)="onViewSavedModels()"></roc-button-with-icon>
+
+    </div>
+
+  </section>
+
+</ng-template>

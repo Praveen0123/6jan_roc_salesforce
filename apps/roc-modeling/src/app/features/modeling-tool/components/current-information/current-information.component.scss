@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+vp-auto-complete {
+  ::ng-deep {
+    .mat-form-field-label {
+      font-size  : 16px;
+      font-weight: 500;
+      margin     : 0 0 4px 0;
+    }
+  }
+}
+
+.un-employed-container {
+  z-index: 1000;
+}
+
+.mat-flat-button {
+  width: 100%;
+}

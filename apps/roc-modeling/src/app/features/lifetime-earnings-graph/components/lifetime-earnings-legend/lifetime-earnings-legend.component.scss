@@ -1,0 +1,14 @@
+:host {
+  display: block;
+
+  .dot-trail {
+    overflow   : hidden;
+    white-space: nowrap;
+
+    &:after {
+      font-size  : 0.75rem;
+      font-weight: normal;
+      content    : ' ..................................................................................';
+    }
+  }
+}

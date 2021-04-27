@@ -1,0 +1,20 @@
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  padding: 0 25px !important;
+}
+  
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: 30px;
+}
+  
+.mat-button-toggle {
+  background-color: #0866A0;
+  color           : white;
+  font-weight     : bold;
+}
+  
+.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+  background : white;
+  color      : #0866A0;
+  font-weight: bold;
+  border-radius: 10px;
+}

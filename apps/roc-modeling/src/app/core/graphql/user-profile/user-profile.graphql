@@ -1,0 +1,29 @@
+mutation saveUserProfile($userProfileInput: UserProfileInput!)
+{
+  saveUserProfile(userProfileInput: $userProfileInput)
+  {
+    ...userFragment
+  }
+}
+
+
+query userById($id:ID!)
+{
+  userById(id:$id)
+  {
+    ...userFragment
+  }
+}
+
+
+fragment userFragment on UserProfile
+{
+    id
+    emailAddress
+    firstName
+    lastName
+    fullName
+    userType
+    highSchoolId
+    hasCompletedOnboarding
+}

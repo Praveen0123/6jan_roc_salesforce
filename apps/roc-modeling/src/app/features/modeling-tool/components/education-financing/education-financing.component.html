@@ -1,0 +1,63 @@
+<form *ngIf="formGroup"
+      [formGroup]="formGroup">
+
+  <section class="flex flex-col w-full">
+
+    <!-- DEPENDENCY STATUS  -->
+    <div class="mt-6 mb-1">
+
+      <mat-label>
+        <div>What is your dependency status?</div>
+      </mat-label>
+
+      <mat-radio-group formControlName="isTaxDependent"
+                       color="primary"
+                       aria-label="part or full time student"
+                       (change)="onTaxDependentChange($event)">
+        <mat-radio-button [value]="true">Dependent</mat-radio-button>
+        <mat-radio-button [value]="false">Independent</mat-radio-button>
+      </mat-radio-group>
+
+
+    </div>
+
+
+    <!-- FINANCING SLIDERS -->
+    <roc-cumulative-loan-sliders [roiModelDto]="roiModelDto"
+                                 (cumulativeLoanSlidersOutputChange)="onCumulativeLoanSlidersOutputChange($event)"></roc-cumulative-loan-sliders>
+
+
+    <!-- YEARS TO PAYOFF FEDERAL LOAN  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Years to payoff federal loan"
+                  formControlName="yearsToPayOffFederalLoan"
+                  [min]="payOffMinimumInYears"
+                  [max]="payOffMaximumInYears"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+
+    <!-- YEARS TO PAYOFF PRIVATE LOAN  -->
+    <div class="mt-6 mb-1">
+
+      <roc-slider label="Years to payoff private loan"
+                  formControlName="yearsToPayOffPrivateLoan"
+                  [min]="payOffMinimumInYears"
+                  [max]="payOffMaximumInYears"
+                  class="w-full"></roc-slider>
+
+    </div>
+
+  </section>
+
+</form>
+
+<!-- <p>
+  Form is {{formGroup.valid ? 'Valid' : 'Invalid'}}
+</p>
+
+<pre>
+{{formGroup.value | json}}
+</pre> -->
